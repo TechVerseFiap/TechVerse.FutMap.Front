@@ -1,5 +1,5 @@
 import userIcon from "/Profile-Icon.svg";
 
-export default function UserIcon({ className }) {
-  return <img className={className} src={userIcon} alt="" />;
+export default function UserIcon({ className, style }) {
+  return <img style={style} className={className} src={userIcon} alt="" />;
 }

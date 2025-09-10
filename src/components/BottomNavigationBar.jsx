@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, animate, transform } from "framer-motion";
 import EventIcon from "./EventIcon";
 import MapIcon from "./MapIcon";
 import ProfileIcon from "./ProfileIcon";
@@ -19,12 +19,13 @@ export default function BottomNavigationBar() {
 
   const recalcCutoutCirclePosition = () => {
     if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
     const newPositions = {};
+    
     for (const id of navItems.map((i) => i.id)) {
       const el = itemRefs.current[id];
       if (el) {
         const rect = el.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
         newPositions[id] = rect.left - containerRect.left + rect.width / 2;
       }
     }
@@ -52,11 +53,13 @@ export default function BottomNavigationBar() {
             {positions[selected] && (
               <motion.circle
                 layoutId="highlight-cutout"
-                r="75"
                 cy="0"
                 fill="black"
                 initial={false}
-                animate={{ cx: positions[selected] }}
+                animate={{
+                  cx: positions[selected],
+                  r: window.innerWidth < 640 ? 60 : 75,
+                }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
@@ -73,22 +76,30 @@ export default function BottomNavigationBar() {
       </svg>
 
       {/* Navigation Content */}
-      <nav ref={containerRef} className="relative flex justify-around items-end h-24">
-        {navItems.map(({ id, label, icon: Icon }) => {
-          const isSelected = selected === id;
+      <nav
+        ref={containerRef}
+        className="relative flex justify-evenly items-end h-24"
+      >
+        {navItems.map((item) => {
+          const isSelected = selected === item.id;
           return (
             <button
-              key={id}
-              ref={(element) => (itemRefs.current[id] = element)}
-              onClick={() => setSelected(id)}
+              key={item.id}
+              ref={(element) => (itemRefs.current[item.id] = element)}
+              onClick={() => setSelected(item.id)}
               className="relative flex flex-col items-center justify-center w-24 h-24"
             >
               {/* Green Floating Circle */}
               {isSelected && (
                 <motion.div
                   layoutId="highlight-circle"
-                  className="absolute -top-15 w-30 h-30 bg-green-500 rounded-full shadow-lg"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  className="absolute bg-green-500 rounded-full shadow-lg"
+                  animate={{
+                    width: window.innerWidth < 640 ? 100 : 120,
+                    height: window.innerWidth < 640 ? 100 : 120,
+                    top: window.innerWidth < 640 ? -50 : -60,
+                  }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
                 />
               )}
 
@@ -101,8 +112,8 @@ export default function BottomNavigationBar() {
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
               >
-                <Icon
-                  className={`w-6 h-6 ${
+                <item.icon
+                  className={`transition-all w-4 h-4 sm:w-6 sm:h-6 ${
                     isSelected
                       ? "filter brightness-0 invert"
                       : "filter grayscale"
@@ -120,7 +131,7 @@ export default function BottomNavigationBar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {label}
+                    {item.label}
                   </motion.span>
                 )}
               </AnimatePresence>
