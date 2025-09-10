@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "./routes.js";
 import Login from "../pages/Login";
+import Player_Register from "../pages/PlayerRegister.jsx";
 import PageNotFound from "../pages/PageNotFound.jsx";
 
 export const router = createBrowserRouter([
@@ -9,6 +10,10 @@ export const router = createBrowserRouter([
     path: routes.Root,
     element: <Login />,
     errorElement: <PageNotFound />,
+  },
+  {
+    path: routes.Player_Register,
+    element: <Player_Register />,
   },
 ]);
 
