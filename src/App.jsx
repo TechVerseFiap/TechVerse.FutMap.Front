@@ -1,12 +1,7 @@
 import AppRoutes from "./routes/AppRoutes";
-import BottomNavigationBar from "./components/BottomNavigationBar"
 
-function App() {
+export default function App() {
   return (
-    <>
-      <BottomNavigationBar/>
-    </>
+    <AppRoutes />
   );
 }
-
-export default App;
