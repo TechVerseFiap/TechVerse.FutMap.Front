@@ -5,14 +5,20 @@ import EventIcon from "./EventIcon";
 import MapIcon from "./MapIcon";
 import ProfileIcon from "./ProfileIcon";
 
+const navItemType = {
+  Events: "Eventos",
+  Map: "Mapa",
+  Profile: "Perfil",
+};
+
 const navItems = [
-  { id: "events", label: "Eventos", icon: EventIcon },
-  { id: "map", label: "Mapa", icon: MapIcon },
-  { id: "profile", label: "Perfil", icon: ProfileIcon },
+  { type: navItemType.Events, icon: EventIcon },
+  { type: navItemType.Map, icon: MapIcon },
+  { type: navItemType.Profile, icon: ProfileIcon },
 ];
 
 export default function BottomNavigationBar() {
-  const [selected, setSelected] = useState("map");
+  const [selected, setSelected] = useState(navItemType.Map);
   const [positions, setPositions] = useState({});
   const containerRef = useRef(null);
   const itemRefs = useRef({});
@@ -22,11 +28,11 @@ export default function BottomNavigationBar() {
     const containerRect = containerRef.current.getBoundingClientRect();
     const newPositions = {};
     
-    for (const id of navItems.map((i) => i.id)) {
-      const el = itemRefs.current[id];
+    for (const type of navItems.map(item => item.type)) {
+      const el = itemRefs.current[type];
       if (el) {
         const rect = el.getBoundingClientRect();
-        newPositions[id] = rect.left - containerRect.left + rect.width / 2;
+        newPositions[type] = rect.left - containerRect.left + rect.width / 2;
       }
     }
     setPositions(newPositions);
@@ -81,12 +87,12 @@ export default function BottomNavigationBar() {
         className="relative flex justify-evenly items-end h-24"
       >
         {navItems.map((item) => {
-          const isSelected = selected === item.id;
+          const isSelected = selected === item.type;
           return (
             <button
-              key={item.id}
-              ref={(element) => (itemRefs.current[item.id] = element)}
-              onClick={() => setSelected(item.id)}
+              key={item.type}
+              ref={(element) => (itemRefs.current[item.type] = element)}
+              onClick={() => setSelected(item.type)}
               className="relative flex flex-col items-center justify-center w-24 h-24"
             >
               {/* Green Floating Circle */}
@@ -131,7 +137,7 @@ export default function BottomNavigationBar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {item.label}
+                    {item.type}
                   </motion.span>
                 )}
               </AnimatePresence>
