@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import EventIcon from "./EventIcon";
-import MapIcon from "./MapIcon";
-import ProfileIcon from "./ProfileIcon";
+import EventIcon from "./icons/EventIcon";
+import MapIcon from "./icons/MapIcon";
+import ProfileIcon from "./icons/ProfileIcon";
 
 const navItemType = {
   Events: "Eventos",
