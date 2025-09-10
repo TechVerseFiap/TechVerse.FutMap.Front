@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import google from "../assets/google.png";
+import apple from "../assets/apple.png";
 
 export default function Login() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-green-500">
-      <div className="w-full max-w-md bg-gray-100 rounded-2xl shadow-xl p-6">
+    <div className="flex items-center justify-center min-h-screen bg-[#10B981]">
+      <div className="w-full max-w-md bg-gray-200 rounded-2xl shadow-xl p-6">
         {/* Logo FutMap */}
         <div className="flex justify-center mb-6">
           <img src={logo} alt="FutMap" className="w-120 h-70 rounded-full" />
@@ -21,7 +23,7 @@ export default function Login() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
+              className="w-full mt-1 p-2 rounded-lg  bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
             />
           </div>
 
@@ -30,22 +32,22 @@ export default function Login() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
+              className="w-full mt-1 p-2 rounded-lg bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
             />
           </div>
 
           {/* Botão Entrar */}
           <button
             type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+            className="w-full bg-[#10B981] text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
           >
             Entrar
           </button>
 
           {/* Botão Cadastrar */}
           <Link
-            to="/register"
-            className="block text-center w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+            to="/PlayerRegister"
+            className="block text-center w-full bg-[#10B981] text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
           >
             Cadastrar
           </Link>
@@ -73,11 +75,13 @@ export default function Login() {
 
         {/* Botões sociais */}
         <div className="space-y-3">
-          <button className="w-full flex items-center justify-center border border-gray-300 rounded-lg py-2 hover:bg-gray-100 transition">
-            Google
+          <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-2 hover:bg-gray-100 transition">
+            <img src={google} alt="Google Logo" className="w-5 h-5" />
+            <span>Google</span>
           </button>
-          <button className="w-full flex items-center justify-center bg-black text-white rounded-lg py-2 hover:bg-gray-900 transition">
-            Apple
+          <button className="w-full flex items-center justify-center gap-3 bg-black text-white rounded-lg py-2 hover:bg-gray-900 transition">
+            <img src={apple} alt="Apple Logo" className="w-5 h-5" />
+            <span>Apple</span>
           </button>
         </div>
       </div>
