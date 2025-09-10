@@ -1,6 +1,6 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence, animate, transform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import EventIcon from "./EventIcon";
 import MapIcon from "./MapIcon";
 import ProfileIcon from "./ProfileIcon";
@@ -32,10 +32,10 @@ export default function BottomNavigationBar() {
     setPositions(newPositions);
   }
 
-    useEffect(() => {
-      window.addEventListener("resize", recalcCutoutCirclePosition);
-      return () => window.removeEventListener("resize", recalcCutoutCirclePosition);
-    }, []);
+  useEffect(() => {
+    window.addEventListener("resize", recalcCutoutCirclePosition);
+    return () => window.removeEventListener("resize", recalcCutoutCirclePosition);
+  }, []);
 
   useLayoutEffect(() => {
     recalcCutoutCirclePosition();
