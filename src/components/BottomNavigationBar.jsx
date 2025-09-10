@@ -4,6 +4,8 @@ import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import EventIcon from "./EventIcon";
 import MapIcon from "./MapIcon";
 import ProfileIcon from "./ProfileIcon";
+import { useIsMobile } from "../hooks/useIsMobile";
+import CustomCutoutShape from "./CustomCutoutShape";
 
 const navItemType = {
   Events: "Eventos",
@@ -22,6 +24,7 @@ export default function BottomNavigationBar() {
   const [positions, setPositions] = useState({});
   const containerRef = useRef(null);
   const itemRefs = useRef({});
+  const isMobile = useIsMobile();
 
   const recalcCutoutCirclePosition = () => {
     if (!containerRef.current) return;
@@ -54,17 +57,26 @@ export default function BottomNavigationBar() {
           <mask id="cutout-mask">
             <rect width="100%" height="100%" fill="white" />
             {positions[selected] && (
-              <motion.circle
+              <motion.g
                 layoutId="highlight-cutout"
-                cy="0"
-                fill="black"
                 initial={false}
                 animate={{
-                  cx: positions[selected],
-                  r: window.innerWidth < 640 ? 60 : 75,
+                  transform: `translate(${
+                    positions[selected] - (isMobile ? 68 : 82)
+                  }px, 0px)`,
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              />
+                transition={{ type: "spring", stiffness: 350, damping: 20 }}
+              >
+                <svg
+                  className={`w-[110px] h-[90px] ${
+                    isMobile ? "scale-125" : "scale-150"
+                  }`}
+                  x="0"
+                  y="-40"
+                >
+                  <CustomCutoutShape fill="black" />
+                </svg>
+              </motion.g>
             )}
           </mask>
         </defs>
@@ -83,10 +95,10 @@ export default function BottomNavigationBar() {
           className="absolute bg-green-500 rounded-full shadow-lg pointer-events-none"
           initial={false}
           animate={{
-            width: window.innerWidth < 640 ? 100 : 120,
-            height: window.innerWidth < 640 ? 100 : 120,
-            left: positions[selected] - (window.innerWidth < 640 ? 50 : 60),
-            top: window.innerWidth < 640 ? -50 : -60,
+            width: isMobile ? 100 : 120,
+            height: isMobile ? 100 : 120,
+            left: positions[selected] - (isMobile ? 50 : 60),
+            top: isMobile ? -50 : -60,
           }}
           transition={{ type: "spring", stiffness: 350, damping: 20 }}
         />
@@ -109,7 +121,7 @@ export default function BottomNavigationBar() {
                 className="relative z-10"
                 animate={{
                   y: isSelected ? -42 : 0,
-                  scale: isSelected ? 3.5 : 2,
+                  scale: isSelected ? 3 : 2,
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
               >
