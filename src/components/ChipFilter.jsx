@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chip from "./Chip";
 
 export default function ChipFilter({ items = [], onChange }) {
   const [selected, setSelected] = useState([]);
 
+  useEffect(() => {
+    const allIds = items.map((item) => item.id);
+    setSelected(allIds);
+    if (onChange) onChange(allIds);
+  }, [items]);
+
   const toggleSelect = (id) => {
     let newSelected;
     if (selected.includes(id)) {
-      newSelected = selected.filter((item) => item !== id);
+      newSelected = selected.filter((itemId) => itemId !== id);
     } else {
       newSelected = [...selected, id];
     }
@@ -16,7 +22,7 @@ export default function ChipFilter({ items = [], onChange }) {
   };
 
   return (
-    <div className="flex justify-center gap-3 flex-wrap p-4">
+    <div className="flex gap-3 p-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
       {items.map((item) => (
         <Chip
           key={item.id}
