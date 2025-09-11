@@ -6,7 +6,6 @@ import MapIcon from "./icons/MapIcon";
 import ProfileIcon from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
-import { Colors } from "../shared/colors";
 
 const navItemType = {
   Events: "Eventos",
@@ -93,7 +92,7 @@ export default function BottomNavigationBar() {
       {positions[selected] && (
         <motion.div
           layoutId="highlight-circle"
-          className={`absolute bg-[${Colors.Primary}] rounded-full shadow-lg pointer-events-none`}
+          className={`absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none`}
           initial={false}
           animate={{
             width: isMobile ? 100 : 120,
