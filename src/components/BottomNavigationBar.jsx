@@ -93,7 +93,7 @@ export default function BottomNavigationBar() {
       {positions[selected] && (
         <motion.div
           layoutId="highlight-circle"
-          className={`absolute bg-[${Colors.Primary}] rounded-full shadow-lg pointer-events-none`}
+          className={`absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none`}
           initial={false}
           animate={{
             width: isMobile ? 100 : 120,
