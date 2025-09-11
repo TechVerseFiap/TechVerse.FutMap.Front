@@ -3,10 +3,12 @@ import Header from "./components/Header";
 import BottomNavigationBar from "./components/BottomNavigationBar";
 
 function App() {
-  return <>
-    <Header></Header>
-    <BottomNavigationBar/>
-  </>
+  return (
+    <>
+      <Header></Header>
+      <BottomNavigationBar />
+    </>
+  );
 }
 
 export default App;
