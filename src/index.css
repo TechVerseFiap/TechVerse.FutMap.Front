@@ -4,6 +4,18 @@
 
 :root {
   --brand-emerald: #57c785;
+  --primary-color: #10B981;
+  --white-color: #F0F0F0;
+  --bg-white-color: #DEDEDE;
+  --low-black-color: #222222;
+  --black-color: #101010;
+  --gray-color: #4B5563;
+  --lightgray-color: #4B5563;
+  --blue-color: #3B82F6;
+  --red-color: #EF4444;
+  --yellow-color: #F59E0B;
+  --purple-color: #9333EA;
+  --orange-color: #EA580C;
 }
 
 body {
