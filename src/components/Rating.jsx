@@ -23,7 +23,6 @@ export default function ReviewModal({ isOpen, onClose }) {
           ✕
         </button>
 
-        {/* Rating com react-rating */}
         <div className="flex justify-center mb-4">
           <Rating
             initialRating={rating}
@@ -34,12 +33,10 @@ export default function ReviewModal({ isOpen, onClose }) {
           />
         </div>
 
-        {/* Título */}
         <h2 className="text-base font-semibold mb-3 text-center">
           Escreva a sua review
         </h2>
 
-        {/* Textarea */}
         <textarea
           value={review}
           onChange={(e) => setReview(e.target.value)}
@@ -47,7 +44,6 @@ export default function ReviewModal({ isOpen, onClose }) {
           className="w-full h-28 p-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none mb-4"
         />
 
-        {/* Botão enviar */}
         <button
           onClick={handleSubmit}
           disabled={rating === 0}
