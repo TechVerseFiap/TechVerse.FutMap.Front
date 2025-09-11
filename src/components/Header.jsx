@@ -15,8 +15,8 @@ export default function Header({ isSearchBarActive = true }) {
   };
 
   return (
-    <header className="flex bg-white justify-between items-center rounded-b-[20px] p-5">
-      <img src={logo} alt="Logo do futmap" className="w-24" />
+    <header className="flex bg-white justify-between items-center rounded-b-[20px] p-4">
+      <img src={logo} alt="Logo do futmap" className="w-20" />
 
       <div className="flex items-center gap-3 flex-1 justify-end">
         {isSearchBarActive && (
