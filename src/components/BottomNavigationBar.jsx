@@ -6,7 +6,6 @@ import MapIcon from "./icons/MapIcon";
 import ProfileIcon from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
-import { Colors } from "../shared/colors";
 
 const navItemType = {
   Events: "Eventos",
