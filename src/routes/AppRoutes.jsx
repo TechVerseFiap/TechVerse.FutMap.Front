@@ -11,11 +11,15 @@ const router = createBrowserRouter([
     path: Routes.Root,
     Component: ProtectedRoute,
     children: [
-      { index: true, Component: MainLayout}
+      { index: true, path: Routes.Unknown, Component: MainLayout},
     ]
   },
   {
     path: Routes.Login,
+    Component: LoginPage
+  },
+  {
+    path: Routes.Register,
     Component: LoginPage
   },
   {
