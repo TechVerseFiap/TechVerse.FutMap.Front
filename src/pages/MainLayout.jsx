@@ -9,7 +9,7 @@ export default function MainLayout() {
     const items = [
         { id: "schools", label: "Escolas", icon: <GraduationCapIcon className="w-5 h-5" /> },
         { id: "tournaments", label: "Torneios", icon: <TrophyIconBlack className="w-5 h-5" /> },
-        { id: "events", label: "Eventos", icon: <ClockIcon className="w-5 h-5" /> },
+        { id: "events", label: "Eventos", icon: <ClockIcon className="w-5 h-5" /> },  
     ];
     
     const handleFilterChange = (selected) => {
