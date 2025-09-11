@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { routes } from "../routes/routes";
+import { Routes } from "../routes/routes";
 
-export default function PageNotFound() {
+export default function NotFoundPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="text-center">
@@ -11,7 +11,7 @@ export default function PageNotFound() {
           Desculpe, a página que você está procurando não existe.
         </p>
         <Link
-          to={routes.Root}
+          to={Routes.Root}
           className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition"
         >
           Voltar para Home

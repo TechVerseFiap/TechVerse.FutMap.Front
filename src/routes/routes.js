@@ -1,4 +1,5 @@
-export const routes = {
+export const Routes = {
   Root: "/",
+  Unknown: "*",
   Login: "login",
 };

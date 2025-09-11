@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-export default function Login() {
+export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-500">
       <div className="w-full max-w-md bg-gray-100 rounded-2xl shadow-xl p-6">
