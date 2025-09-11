@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import EventIcon from "./EventIcon";
-import MapIcon from "./MapIcon";
-import ProfileIcon from "./ProfileIcon";
+import EventIcon from "./icons/EventIcon";
+import MapIcon from "./icons/MapIcon";
+import ProfileIcon from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
+import { Colors } from "../shared/colors";
 
 const navItemType = {
   Events: "Eventos",
@@ -92,7 +93,7 @@ export default function BottomNavigationBar() {
       {positions[selected] && (
         <motion.div
           layoutId="highlight-circle"
-          className="absolute bg-green-500 rounded-full shadow-lg pointer-events-none"
+          className={`absolute bg-[${Colors.Primary}] rounded-full shadow-lg pointer-events-none`}
           initial={false}
           animate={{
             width: isMobile ? 100 : 120,
