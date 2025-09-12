@@ -61,21 +61,14 @@ export default function BottomNavigationBar() {
                 layoutId="highlight-cutout"
                 initial={false}
                 animate={{
-                  transform: `translate(${
-                    positions[selected] - (isMobile ? 68 : 82)
-                  }px, 0px)`,
+                  transform: `
+                    translate(${positions[selected] - 56}px, -37.5px)
+                    scale(${isMobile ? 1.25 : 1.5})
+                  `,
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
               >
-                <svg
-                  className={`w-[110px] h-[90px] ${
-                    isMobile ? "scale-125" : "scale-150"
-                  }`}
-                  x="0"
-                  y="-40"
-                >
-                  <CustomCutoutShape fill="black" />
-                </svg>
+                <CustomCutoutShape fill="black" />
               </motion.g>
             )}
           </mask>
