@@ -83,7 +83,7 @@ export default function BottomNavigationBar() {
         <rect
           width="100%"
           height="100%"
-          fill="white"
+          fill="#F0F0F0"
           mask="url(#cutout-mask)"
           rx="20"
         />
