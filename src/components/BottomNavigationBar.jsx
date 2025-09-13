@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import EventIcon from "./icons/EventIcon";
+import { EventIcon } from "./icons/EventIcon";
 import MapIcon from "./icons/MapIcon";
 import { UserIcon } from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
