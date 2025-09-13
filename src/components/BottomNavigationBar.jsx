@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import EventIcon from "./icons/EventIcon";
 import MapIcon from "./icons/MapIcon";
-import ProfileIcon from "./icons/ProfileIcon";
+import { UserIcon } from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
 
@@ -16,7 +16,7 @@ const navItemType = {
 const navItems = [
   { type: navItemType.Events, icon: EventIcon },
   { type: navItemType.Map, icon: MapIcon },
-  { type: navItemType.Profile, icon: ProfileIcon },
+  { type: navItemType.Profile, icon: UserIcon },
 ];
 
 export default function BottomNavigationBar() {

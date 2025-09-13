@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import logo from "/Logo-Horizontal-Dark.png";
-import NotificationIcon from "./icons/NotificationIcon";
+import {NotificationIcon} from "./icons/NotificationIcon";
 import SearchIcon from "./icons/SearchIcon";
 import { X } from "lucide-react";
 
