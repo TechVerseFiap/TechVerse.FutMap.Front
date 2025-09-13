@@ -3,4 +3,5 @@ export const Routes = {
   Unknown: "*",
   Login: "login",
   Register: "register",
+  Test: "test"
 };
