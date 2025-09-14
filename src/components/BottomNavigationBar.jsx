@@ -1,9 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import { EventIcon } from "./icons/EventIcon";
-import MapIcon from "./icons/MapIcon";
-import { UserIcon } from "./icons/ProfileIcon";
+import { EventIcon, MapIcon, ProfileIcon } from "./icons/Icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
 import { Routes } from "../routes/routes"
@@ -18,7 +16,7 @@ const navItemType = {
 const navItems = [
   { type: navItemType.Events, icon: EventIcon, route: Routes.Event },
   { type: navItemType.Map, icon: MapIcon, route: Routes.Root },
-  { type: navItemType.Profile, icon: UserIcon, route: Routes.Profile },
+  { type: navItemType.Profile, icon: ProfileIcon, route: Routes.Profile },
 ];
 
 export default function BottomNavigationBar() {

@@ -2,8 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import logo from "/Logo-Horizontal-Dark.png";
-import {NotificationIcon} from "./icons/NotificationIcon";
-import SearchIcon from "./icons/SearchIcon";
+import { NotificationIcon, SearchIcon } from "./icons/Icons";
 import { X } from "lucide-react";
 
 export default function Header({ isSearchBarActive = true }) {

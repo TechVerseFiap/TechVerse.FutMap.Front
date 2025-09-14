@@ -1,4 +1,4 @@
-import CameraIcon from "./icons/CameraIcon";
+import { CameraIcon } from "./icons/Icons.jsx";
 
 export default function AvatarUpload({ image, onClick }) {
   return (

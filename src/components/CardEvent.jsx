@@ -1,5 +1,4 @@
-import ClockIcon from "./icons/ClockIcon";
-import UsersIcon from "./icons/UsersIcon";
+import { ClockIcon, UsersIcon } from "./icons/Icons";
 import StandardButton from "./StandardButton";
 
 export default function CardEvent({
@@ -47,12 +46,13 @@ export default function CardEvent({
 
         <div className="mt-3">
           <StandardButton
-            text="Entrar no Torneio"
             onClick={onJoin}
             color="bg-(--red-color)"
             padding="py-3"
             style="w-full"
-          />
+          >
+            Entrar no Torneio
+          </StandardButton>
         </div>
       </div>
     </div>
