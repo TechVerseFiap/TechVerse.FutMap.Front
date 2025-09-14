@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import OptionCardList from "../components/OptionCardList";
 import ContainerOptions from "../components/ContainerOptions";
@@ -15,30 +14,29 @@ import {
     InformationIcon,
     ExitIcon
 } from "../components/icons/Icons";
+import { useQuery } from "@tanstack/react-query";
 
-export default function ProfilePage() {
-    const [user, setUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+export default function ProfilePage({ userId=3 }) {
+    const {
+        data: user,
+        isLoading,
+        error
+    } = useQuery({
+        queryKey: ['user', userId],
+        queryFn: async () => {
+            const response = await fetch(
+                `https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users/${userId}`
+            );
+            if (!response.ok) {
+                throw new Error('Failed to fetch user');
+            }
+            return response.json();
+        },
+    });
 
-    useEffect(() => {
-        async function fetchUser() {
-            try {
-                setIsLoading(true);
-                const response = await fetch(
-                    "https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users/3"
-                );
-                const data = await response.json();
-                setUser(data);
-            } 
-            catch (error) {
-                console.error("Erro ao buscar usuário:", error);
-            }
-            finally {
-                setIsLoading(false);
-            }
-        }
-        fetchUser();
-    }, []);
+    if (error) {
+        console.error("Error fetching user", error);
+    }
 
     // Handlers
     function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
@@ -119,6 +117,16 @@ export default function ProfilePage() {
             onClick: handleExit,
         },
     ];
+
+    if (error) {
+        return (
+            <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">
+                <div className="flex items-center justify-center p-6">
+                    <p className="text-red-500">Erro ao carregar perfil. Tente novamente.</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">

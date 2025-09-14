@@ -6,6 +6,7 @@ import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import MainLayout from "../pages/MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import EventPage from "../pages/EventPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
           {
             path: Routes.Profile,
             Component: ProfilePage
+          },
+          {
+            path: Routes.Event,
+            Component: EventPage
           }
         ]
       }
