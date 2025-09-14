@@ -4,9 +4,8 @@ import ClockIcon from "../components/icons/ClockIcon";
 import BottomNavigationBar from "../components/BottomNavigationBar";
 import Header from "../components/Header";
 import ChipFilter from "../components/ChipFilter";
-import OptionCardList from "../components/OptionCardList";
-import { EventIconGreen } from "../components/icons/EventIcon";
-import BookmarkIconGreen  from "../components/icons/BookMark";
+import CardEvent from "../components/CardEvent";
+import ProfileHeader from "../components/ProfileHeader";
 
 export default function MainLayout() {
   const items = [
@@ -31,11 +30,31 @@ export default function MainLayout() {
   };
 
 
-  return (
-    <>
-      <Header />
-      <ChipFilter items={items} onChange={handleFilterChange} />
-      <BottomNavigationBar />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <ChipFilter items={items} onChange={handleFilterChange} />
+            <CardEvent
+                image="https://images.unsplash.com/photo-1525088068454-ff2c453e50e9?q=80&w=870&auto=format&fit=crop" 
+                title="Torneio jovem Feminino"
+                subtitle="Academia de esportes"
+                dateLabel="Amanhã"
+                dateLabelColor ="bg-(--red-color)"
+                distanceLabel="2.3 km"
+                distanceLabelColor="bg-(--gray-color)"
+                time="10:00h"
+                people={24}
+                onJoin={() => alert("Entrou no torneio!")}
+            />
+
+            <ProfileHeader 
+                image="https://plus.unsplash.com/premium_photo-1706830553449-34072101c746?q=80&w=800&auto=format&fit=crop"
+                name="Sofia Papp"
+                position="Atacante"
+                age={19}
+                onAvatarClick={() => alert("Clicou!")}
+            />
+            <BottomNavigationBar />
+        </>
+    );
 }
