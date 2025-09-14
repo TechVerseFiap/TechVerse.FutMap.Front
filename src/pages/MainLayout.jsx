@@ -5,6 +5,7 @@ import BottomNavigationBar from "../components/BottomNavigationBar";
 import Header from "../components/Header";
 import ChipFilter from "../components/ChipFilter";
 import CardEvent from "../components/CardEvent";
+import ProfileHeader from "../components/ProfileHeader";
 
 export default function MainLayout() {
     const items = [
@@ -34,6 +35,13 @@ export default function MainLayout() {
                 onJoin={() => alert("Entrou no torneio!")}
             />
 
+            <ProfileHeader 
+                image="https://plus.unsplash.com/premium_photo-1706830553449-34072101c746?q=80&w=800&auto=format&fit=crop"
+                name="Sofia Papp"
+                position="Atacante"
+                age={19}
+                onAvatarClick={() => alert("Clicou!")}
+            />
             <BottomNavigationBar />
         </>
     );
