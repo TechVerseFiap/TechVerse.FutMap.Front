@@ -1,6 +1,6 @@
 export default function ProfileOptions({
   leftIcon,
-  color = "bg-(--light-blue-color)", 
+  color = "bg-white", 
   title,
   titleColor = "text-gray-900",
   description,

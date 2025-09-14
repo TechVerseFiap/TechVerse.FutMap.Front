@@ -6,6 +6,8 @@ import MapIcon from "./icons/MapIcon";
 import { UserIcon } from "./icons/ProfileIcon";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
+import { Routes } from "../routes/routes"
+import { useNavigate } from "react-router";
 
 const navItemType = {
   Events: "Eventos",
@@ -14,12 +16,14 @@ const navItemType = {
 };
 
 const navItems = [
-  { type: navItemType.Events, icon: EventIcon },
-  { type: navItemType.Map, icon: MapIcon },
-  { type: navItemType.Profile, icon: UserIcon },
+  { type: navItemType.Events, icon: EventIcon, route: Routes.Event },
+  { type: navItemType.Map, icon: MapIcon, route: Routes.Root },
+  { type: navItemType.Profile, icon: UserIcon, route: Routes.Profile },
 ];
 
 export default function BottomNavigationBar() {
+ const navigate = useNavigate();
+
   const [selected, setSelected] = useState(navItemType.Map);
   const [positions, setPositions] = useState({});
   const containerRef = useRef(null);
@@ -107,7 +111,10 @@ export default function BottomNavigationBar() {
             <button
               key={item.type}
               ref={(element) => (itemRefs.current[item.type] = element)}
-              onClick={() => setSelected(item.type)}
+              onClick={() => { 
+                setSelected(item.type)
+                navigate(item.route)
+              }}
               className="relative flex flex-col items-center justify-center w-20 h-20 pt-2"
             >
               <motion.div
