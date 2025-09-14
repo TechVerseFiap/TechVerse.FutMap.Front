@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import EventIcon from "./icons/EventIcon";
-import MapIcon from "./icons/MapIcon";
-import ProfileIcon from "./icons/ProfileIcon";
+import { EventIcon, MapIcon, ProfileIcon } from "./icons/Icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
+import { Routes } from "../routes/routes"
+import { useNavigate } from "react-router";
 
 const navItemType = {
   Events: "Eventos",
@@ -14,12 +14,14 @@ const navItemType = {
 };
 
 const navItems = [
-  { type: navItemType.Events, icon: EventIcon },
-  { type: navItemType.Map, icon: MapIcon },
-  { type: navItemType.Profile, icon: ProfileIcon },
+  { type: navItemType.Events, icon: EventIcon, route: Routes.Event },
+  { type: navItemType.Map, icon: MapIcon, route: Routes.Root },
+  { type: navItemType.Profile, icon: ProfileIcon, route: Routes.Profile },
 ];
 
 export default function BottomNavigationBar() {
+ const navigate = useNavigate();
+
   const [selected, setSelected] = useState(navItemType.Map);
   const [positions, setPositions] = useState({});
   const containerRef = useRef(null);
@@ -61,21 +63,14 @@ export default function BottomNavigationBar() {
                 layoutId="highlight-cutout"
                 initial={false}
                 animate={{
-                  transform: `translate(${
-                    positions[selected] - (isMobile ? 68 : 82)
-                  }px, 0px)`,
+                  transform: `
+                    translate(${positions[selected] - 56}px, -39px)
+                    scale(${isMobile ? 1.25 : 1.5})
+                  `,
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
               >
-                <svg
-                  className={`w-[110px] h-[90px] ${
-                    isMobile ? "scale-125" : "scale-150"
-                  }`}
-                  x="0"
-                  y="-40"
-                >
-                  <CustomCutoutShape fill="black" />
-                </svg>
+                <CustomCutoutShape fill="black" />
               </motion.g>
             )}
           </mask>
@@ -83,7 +78,7 @@ export default function BottomNavigationBar() {
         <rect
           width="100%"
           height="100%"
-          fill="white"
+          fill="#F0F0F0"
           mask="url(#cutout-mask)"
           rx="20"
         />
@@ -92,7 +87,7 @@ export default function BottomNavigationBar() {
       {positions[selected] && (
         <motion.div
           layoutId="highlight-circle"
-          className={`absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none`}
+          className="absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none"
           initial={false}
           animate={{
             width: isMobile ? 100 : 120,
@@ -114,13 +109,16 @@ export default function BottomNavigationBar() {
             <button
               key={item.type}
               ref={(element) => (itemRefs.current[item.type] = element)}
-              onClick={() => setSelected(item.type)}
-              className="relative flex flex-col items-center justify-center w-20 h-20"
+              onClick={() => { 
+                setSelected(item.type)
+                navigate(item.route)
+              }}
+              className="relative flex flex-col items-center justify-center w-20 h-20 pt-2"
             >
               <motion.div
                 className="relative z-10"
                 animate={{
-                  y: isSelected ? -42 : 0,
+                  y: isSelected ? -48 : 0,
                   scale: isSelected ? 3 : 2,
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
@@ -138,7 +136,7 @@ export default function BottomNavigationBar() {
                 {!isSelected && (
                   <motion.span
                     key="label"
-                    className="text-xs font-extrabold text-gray-700 mt-2"
+                    className="text-xs font-extrabold text-gray-700 mt-2 pt-1"
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}

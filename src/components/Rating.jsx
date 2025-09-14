@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Rating from "react-rating";
-import {TrophyIconEmpty, TrophyIconFull} from "./icons/TrophyIcon";
+import { TrophyIconEmpty, TrophyIconFull } from "./icons/Icons";
 
 export default function ReviewModal({ isOpen, onClose }) {
   const [rating, setRating] = useState(0);

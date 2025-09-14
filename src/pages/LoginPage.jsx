@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import logo from "../assets/logo.png";
 import FormInput from "../components/FormInput";
 import StandardButton from "../components/StandandButton";

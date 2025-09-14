@@ -5,13 +5,24 @@ import MainLayout from "../pages/MainLayout.jsx"
 import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import MainLayout from "../pages/MainLayout.jsx";
+import ProfilePage from "../pages/ProfilePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: Routes.Root,
     Component: ProtectedRoute,
     children: [
-      { index: true, path: Routes.Unknown, Component: MainLayout},
+      { 
+        path: "",
+        Component: MainLayout, 
+        children: [
+          {
+            path: Routes.Profile,
+            Component: ProfilePage
+          }
+        ]
+      }
     ]
   },
   {
@@ -25,7 +36,7 @@ const router = createBrowserRouter([
   {
     path: Routes.Unknown,
     Component: NotFoundPage
-  }
+  },
 ]);
 
 export default function AppRoutes() {
