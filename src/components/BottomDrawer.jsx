@@ -12,12 +12,11 @@ import {
 	PhoneIcon,
 	UsersIcon,
 	ShareIcon,
-	SaveIcon,
+	BookmarkIcon,
 	ClockIcon
 } from "./icons/Icons.jsx";
 import Button from "./StandardButton";
 import Rating from "react-rating";
-import { Fish } from "lucide-react";
 
 export default function BottomDrawer({
 	placeName,
@@ -297,7 +296,7 @@ export default function BottomDrawer({
 								{ icon: <TrophyIconEmpty fill="#222222" className="w-5" />, text: "Avaliar", delay: "delay-100" },
 								{ icon: <PhoneIcon />, text: "Ligar", delay: "delay-200" },
 								{ icon: <ShareIcon />, text: "Share", delay: "delay-300" },
-								{ icon: <SaveIcon />, text: "Save", delay: "delay-500" }
+								{ icon: <BookmarkIcon />, text: "Save", delay: "delay-500" }
 							].map((button, index) => (
 								<div
 									key={index}
