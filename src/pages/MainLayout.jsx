@@ -1,5 +1,5 @@
 import { TrophyIconBlack } from "../components/icons/TrophyIcon";
-import GraduationCapIcon from "../components/icons/GraduationCapIcon"
+import GraduationCapIcon from "../components/icons/GraduationCapIcon";
 import ClockIcon from "../components/icons/ClockIcon";
 import BottomNavigationBar from "../components/BottomNavigationBar";
 import Header from "../components/Header";
@@ -8,15 +8,27 @@ import CardEvent from "../components/CardEvent";
 import ProfileHeader from "../components/ProfileHeader";
 
 export default function MainLayout() {
-    const items = [
-        { id: "schools", label: "Escolas", icon: <GraduationCapIcon className="w-5 h-5" /> },
-        { id: "tournaments", label: "Torneios", icon: <TrophyIconBlack className="w-5 h-5" /> },
-        { id: "events", label: "Eventos", icon: <ClockIcon className="w-5 h-5" /> },  
-    ];
-    
-    const handleFilterChange = (selected) => {
-        console.log("Filtros ativos:", selected);
-    };
+  const items = [
+    {
+      id: "schools",
+      label: "Escolas",
+      icon: <GraduationCapIcon className="w-5 h-5" />,
+    },
+    {
+      id: "tournaments",
+      label: "Torneios",
+      icon: <TrophyIconBlack className="w-5 h-5" />,
+    },
+    { id: "events", label: "Eventos", icon: <ClockIcon className="w-5 h-5" /> },
+  ];
+
+
+
+
+  const handleFilterChange = (selected) => {
+    console.log("Filtros ativos:", selected);
+  };
+
 
     return (
         <>
