@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 
-export default function Login() {
+export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#10B981]">
       <div className="w-full max-w-md bg-gray-200 rounded-2xl shadow-xl p-6">

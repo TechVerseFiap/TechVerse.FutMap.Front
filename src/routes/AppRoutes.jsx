@@ -1,19 +1,36 @@
 // src/routes/AppRoutes.jsx
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { routes } from "./routes.js";
-import Login from "../pages/Login";
-import Player_Register from "../pages/PlayerRegister.jsx";
-import PageNotFound from "../pages/PageNotFound.jsx";
+import { Routes } from "./routes.js";
+import LoginPage from "../pages/LoginPage.jsx";
+import NotFoundPage from "../pages/NotFoundPage.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
+import MainLayout from "../pages/MainLayout.jsx";
+import ProfilePage from "../pages/ProfilePage.jsx";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path: routes.Root,
-    element: <Login />,
-    errorElement: <PageNotFound />,
+    path: Routes.Root,
+    Component: ProtectedRoute,
+    children: [
+      { 
+        path: "",
+        Component: MainLayout, 
+        children: [
+          {
+            path: Routes.Profile,
+            Component: ProfilePage
+          }
+        ]
+      }
+    ]
   },
   {
-    path: routes.Player_Register,
-    element: <Player_Register />,
+    path: Routes.Login,
+    Component: LoginPage
+  },
+  {
+    path: Routes.Unknown,
+    Component: NotFoundPage
   },
 ]);
 

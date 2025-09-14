@@ -1,5 +1,7 @@
-export const routes = {
+export const Routes = {
   Root: "/",
+  Unknown: "*",
   Login: "login",
-  Player_Register: "playerRegister",
+  Profile: "profile",
+  Event: "events",
 };
