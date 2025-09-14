@@ -1,8 +1,8 @@
 import ProfileOptions from "./ProfileOptions";
 
-export default function ContainerOptions({ options = [] }) {
+export default function ContainerOptions({ options = [], isAboutContainer = false, className = "" }) {
   return (
-    <div className="flex flex-col gap-3 bg-white p-4 rounded-2xl">
+    <div className= { `flex flex-col bg-white  rounded-2xl ${className}  ${isAboutContainer == true ? "" : "gap-3 p-4"}` }>
       {options.map((option, index) => (
         <ProfileOptions
           key={index}

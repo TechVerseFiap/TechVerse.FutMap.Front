@@ -1,8 +1,8 @@
 import OptionCard from "./OptionCard";
 
-export default function OptionCardList({ items = [] }) {
+export default function OptionCardList({ items = [], className=""}) {
   return (
-    <div className="grid grid-cols-2 gap-4 p-4">
+    <div className={ `grid grid-cols-2 gap-4 ${className}` }>
       {items.map((item, index) => (
         <OptionCard
           key={index}
