@@ -66,7 +66,7 @@ export default function BottomNavigationBar() {
                 initial={false}
                 animate={{
                   transform: `
-                    translate(${positions[selected] - 56}px, -37.5px)
+                    translate(${positions[selected] - 56}px, -39px)
                     scale(${isMobile ? 1.25 : 1.5})
                   `,
                 }}
@@ -89,7 +89,7 @@ export default function BottomNavigationBar() {
       {positions[selected] && (
         <motion.div
           layoutId="highlight-circle"
-          className={`absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none`}
+          className="absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none"
           initial={false}
           animate={{
             width: isMobile ? 100 : 120,
@@ -115,12 +115,12 @@ export default function BottomNavigationBar() {
                 setSelected(item.type)
                 navigate(item.route)
               }}
-              className="relative flex flex-col items-center justify-center w-20 h-20"
+              className="relative flex flex-col items-center justify-center w-20 h-20 pt-2"
             >
               <motion.div
                 className="relative z-10"
                 animate={{
-                  y: isSelected ? -42 : 0,
+                  y: isSelected ? -48 : 0,
                   scale: isSelected ? 3 : 2,
                 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
@@ -138,7 +138,7 @@ export default function BottomNavigationBar() {
                 {!isSelected && (
                   <motion.span
                     key="label"
-                    className="text-xs font-extrabold text-gray-700 mt-2"
+                    className="text-xs font-extrabold text-gray-700 mt-2 pt-1"
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
