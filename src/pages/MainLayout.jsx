@@ -1,10 +1,9 @@
-import { TrophyIconBlack } from "../components/icons/TrophyIcon";
-import GraduationCapIcon from "../components/icons/GraduationCapIcon"
-import ClockIcon from "../components/icons/ClockIcon";
+import { TrophyIconBlack, GraduationCapIcon, ClockIcon } from "../components/icons/Icons.jsx"
 import BottomNavigationBar from "../components/BottomNavigationBar";
 import Header from "../components/Header";
 import ChipFilter from "../components/ChipFilter";
 import CardEvent from "../components/CardEvent";
+import BottomDrawer from "../components/BottomDrawer";
 
 export default function MainLayout() {
     const items = [

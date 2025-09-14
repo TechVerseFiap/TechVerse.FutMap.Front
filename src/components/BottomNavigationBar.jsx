@@ -1,9 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useLayoutEffect, useRef, useEffect } from "react";
-import EventIcon from "./icons/EventIcon";
-import MapIcon from "./icons/MapIcon";
-import ProfileIcon from "./icons/ProfileIcon";
+import { EventIcon, MapIcon, ProfileIcon } from "./icons/Icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
 
@@ -62,7 +60,7 @@ export default function BottomNavigationBar() {
                 initial={false}
                 animate={{
                   transform: `
-                    translate(${positions[selected] - 56}px, -37.5px)
+                    translate(${positions[selected] - 56}px, -39px)
                     scale(${isMobile ? 1.25 : 1.5})
                   `,
                 }}

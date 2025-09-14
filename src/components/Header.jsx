@@ -2,8 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import logo from "/Logo-Horizontal-Dark.png";
-import NotificationIcon from "./icons/NotificationIcon";
-import SearchIcon from "./icons/SearchIcon";
+import { NotificationIcon, SearchIcon } from "./icons/Icons";
 import { X } from "lucide-react";
 
 export default function Header({ isSearchBarActive = true }) {
@@ -16,7 +15,7 @@ export default function Header({ isSearchBarActive = true }) {
   };
 
   return (
-    <header className="flex bg-(--white-color) justify-between items-center rounded-b-[20px] p-4">
+    <header className="fixed w-full z-10 flex bg-(--white-color) justify-between items-center rounded-b-[20px] p-4">
       <img src={logo} alt="Logo do futmap" className="w-20" />
 
       <div className="flex items-center gap-3 flex-1 justify-end">

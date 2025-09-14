@@ -1,5 +1,4 @@
-import ClockIcon from "./icons/ClockIcon";
-import UsersIcon from "./icons/UsersIcon";
+import { ClockIcon, UsersIcon } from "./icons/Icons";
 import StandardButton from "./StandardButton";
 
 export default function CardEvent({
