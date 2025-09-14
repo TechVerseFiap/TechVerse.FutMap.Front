@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { routes } from "../routes/routes";
 
 export default function PageNotFound() {

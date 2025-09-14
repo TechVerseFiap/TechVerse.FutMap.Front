@@ -1,5 +1,5 @@
 // src/routes/AppRoutes.jsx
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { routes } from "./routes.js";
 import Login from "../pages/Login";
 import Player_Register from "../pages/PlayerRegister.jsx";
