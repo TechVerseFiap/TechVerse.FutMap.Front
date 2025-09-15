@@ -1,6 +1,7 @@
+import { Outlet } from "react-router";
 import logo from "/Logo-Vertical-Dark.png";
 
-export default function AuthLayout({ children }) {
+export default function AuthLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-(--primary-color)">
       <div className="flex items-center justify-center pt-6 pb-20">
@@ -13,9 +14,9 @@ export default function AuthLayout({ children }) {
         </div>
       </div>
 
-      <div className="flex-1 bg-gray-200 rounded-t-3xl p-4 shadow-inner relative">
-        <div className="bg-gray-200 rounded-2xl shadow-lg p-6 -mt-16">
-          {children}
+      <div className="flex-1 bg-gray-200 rounded-t-3xl p-4 shadow-inner relative flex justify-center">
+        <div className="bg-gray-200 rounded-2xl shadow-lg p-6 -mt-16 w-full max-w-[750px]">
+          <Outlet />
         </div>
       </div>
     </div>
