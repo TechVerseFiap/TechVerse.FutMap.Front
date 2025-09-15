@@ -11,24 +11,25 @@ export default function NewsCard({ title, desc, date, image }) {
   };
 
   return (
-    <div className="m-2 flex min-h-[10vh] whitespace-normal bg-white shadow-lg rounded-[20px] overflow-hidden">
+    <div className="my-2 flex min-h-[10vh] whitespace-normal bg-(--white-color) shadow-lg rounded-[20px] overflow-hidden">
       <img
         src={image}
-      className="w-30 p-4 rounded-[30px] h-auto object-cover"
+        className="w-30 p-4 rounded-[30px] object-cover"
       />
       <div className="flex flex-col py-4 pr-4 w-full max-h-80%">
-        <p className="text-lg sm:text-xl font-semibold text-gray-800">
+        <p className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-2">
           {title}
         </p>
         <p className="text-sm text-gray-600 mt-2 line-clamp-2 pr-5">
           {desc}
         </p>
         <div className="flex align-baseline justify-between items-end">
-          <p className="align-baseline text-2xs text-gray-500 mt-2">{
-          formatDistanceToNow(new Date(date), {
-            addSuffix: true,
-            locale: ptBR,
-          })}</p>
+          <p className="align-baseline text-xs text-gray-500 mt-2">{
+            formatDistanceToNow(new Date(date), {
+              addSuffix: true,
+              locale: ptBR,
+            })}
+          </p>
           <Checkbox checked={flagged} onCheckedChange={handleToggle} />
         </div>
       </div>
