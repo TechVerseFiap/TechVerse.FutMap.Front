@@ -45,15 +45,6 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      animation: {
-        shimmer: "shimmer 1.5s infinite linear",
-      },
-      keyframes: {
-        shimmer: {
-          "0%": { backgroundPosition: "-200px 0" },
-          "100%": { backgroundPosition: "calc(200px + 100%) 0" },
-        },
-      },
     },
   },
   plugins: [],
