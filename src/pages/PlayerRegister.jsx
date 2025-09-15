@@ -1,120 +1,165 @@
-import { Link } from "react-router";
-import { MapPin } from "lucide-react";
-import logo from "../assets/logo.png";
+import AuthLayout from "../components/AuthLayout";
+import FormInput from "../components/FormInput";
+import StandardButton from "../components/StandardButton";
+import { ArrowLeftIcon } from "../components/icons/Icons";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { playerRegisterSchema } from "../components/validations/playerRegisterSchema";
+import { useNavigate } from "react-router";
+import { Routes } from "../routes/routes"
 
-export default function Register() {
+export default function PlayerRegister() {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(playerRegisterSchema),
+      defaultValues: {
+      name: "",
+      responsavel: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      cpf: "",
+      address: "",
+    }
+  });
+
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    console.log("Form enviado ✅", data);
+    navigateLogin()
+  };
+
+  function navigateLogin(){
+    navigate("/" + Routes.Login, {replace: true} )
+  }
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#10B981]">
-      <div className="w-full max-w-md bg-gray-200 rounded-2xl shadow-xl p-6">
-        {/* Header com logo */}
-        <div className="flex justify-center mb-6">
-          <img src={logo} alt="FutMap" className="w-120 h-70 rounded-full" />
-        </div>
-
-        {/* Formulário */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Nome:
-            </label>
-            <input
-              type="text"
-              placeholder="Nome Completo"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-bg-[#10B981] focus:ring-bg-[#10B981]"
+    <AuthLayout>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="Nome"
+              id="name"
+              placeholder="Nome completo"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.name?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Nome do Responsável *
-            </label>
-            <input
-              type="text"
+        <Controller
+          name="responsavel"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="Nome do Responsável"
+              id="responsavel"
               placeholder="Nome do responsável"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.responsavel?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              E-mail *
-            </label>
-            <input
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="E-mail"
+              id="email"
               type="email"
               placeholder="seu@email.com"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.email?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Senha *
-            </label>
-            <input
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="Senha"
+              id="password"
               type="password"
               placeholder="Mínimo 8 caracteres"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.password?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Confirmar Senha *
-            </label>
-            <input
+        <Controller
+          name="confirmPassword"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="Confirmar Senha"
+              id="confirmPassword"
               type="password"
               placeholder="Confirme sua senha"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.confirmPassword?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              CPF
-            </label>
-            <input
-              type="text"
+        <Controller
+          name="cpf"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="CPF"
+              id="cpf"
               placeholder="000.000.000-00"
-              className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500"
+              value={field.value}
+              onChange={field.onChange}
+              error={errors.cpf?.message}
             />
-          </div>
+          )}
+        />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Endereço *
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Digite o endereço completo"
-                className="mt-1 w-full rounded-lg bg-gray-100 border-gray-300 bg-gray-100 p-3 text-sm shadow-sm focus:border-green-500 focus:ring-green-500 pr-10"
-              />
-              <MapPin className="absolute right-3 top-3 h-5 w-5 text-green-500 cursor-pointer" />
-            </div>
-            <p className="text-xs text-gray-500 mt-1">
-              Toque no ícone para selecionar no mapa
-            </p>
-          </div>
+        <Controller
+          name="address"
+          control={control}
+          render={({ field }) => (
+            <FormInput
+              label="Endereço"
+              id="address"
+              placeholder="Digite o endereço completo"
+              value={field.value || ""}
+              onChange={field.onChange}
+              error={errors.address?.message}
+            />
+          )}
+        />
 
-          {/* Botão */}
-          <button
-            type="submit"
-            className="w-full bg-[#10B981] text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition"
-          >
-            Finalizar Cadastro
-          </button>
+        <StandardButton bgColor="bg-(--primary-color)">
+          Finalizar Cadastro
+        </StandardButton>
 
-          {/* Link voltar */}
-          <div className="text-center mt-2">
-            <Link
-              to="/"
-              className="text-sm text-gray-700 hover:text-green-600 transition"
-            >
-              ← Voltar ao Login
-            </Link>
-          </div>
-        </form>
-      </div>
-    </div>
+        <button
+          type="button"
+          onClick={navigateLogin}
+          className="text-gray-600 text-sm flex items-center justify-center gap-1"
+        >
+          <ArrowLeftIcon /> Voltar ao Login
+        </button>
+      </form>
+    </AuthLayout>
   );
 }

@@ -4,4 +4,5 @@ export const Routes = {
   Login: "login",
   Profile: "profile",
   Event: "events",
+  PlayerRegister: "player-register"
 };

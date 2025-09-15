@@ -6,6 +6,7 @@ import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import MainLayout from "../pages/MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import PlayerRegister from "../pages/PlayerRegister.jsx"
 
 const router = createBrowserRouter([
   {
@@ -29,9 +30,14 @@ const router = createBrowserRouter([
     Component: LoginPage
   },
   {
+    path: Routes.PlayerRegister,
+    Component: PlayerRegister
+  },
+  {
     path: Routes.Unknown,
     Component: NotFoundPage
   },
+
 ]);
 
 export default function AppRoutes() {
