@@ -43,7 +43,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="Nome"
+            label="Nome *"
             id="name"
             placeholder="Nome completo"
             value={field.value || ""}
@@ -58,7 +58,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="Nome do Responsável"
+            label="Nome do Responsável *"
             id="responsavel"
             placeholder="Nome do responsável"
             value={field.value || ""}
@@ -73,7 +73,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="E-mail"
+            label="E-mail *"
             id="email"
             type="email"
             placeholder="seu@email.com"
@@ -89,7 +89,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="Senha"
+            label="Senha *"
             id="password"
             type="password"
             placeholder="Mínimo 8 caracteres"
@@ -105,7 +105,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="Confirmar Senha"
+            label="Confirmar Senha *"
             id="confirmPassword"
             type="password"
             placeholder="Confirme sua senha"
@@ -136,7 +136,7 @@ export default function RegisterPage() {
         control={control}
         render={({ field }) => (
           <FormInput
-            label="Endereço"
+            label="Endereço *"
             id="address"
             placeholder="Digite o endereço completo"
             value={field.value || ""}

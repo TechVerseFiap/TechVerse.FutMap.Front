@@ -5,7 +5,7 @@ export const Routes = {
   Auth: "/auth",
   Login: "/auth/login",
   Register: "/auth/register",
-  CompanyRegister: "/auth/register-company",
+  RegisterCompany: "/auth/register-company",
   ForgotPassword: "/auth/forgot-password",
   Unknown: "*",
 };

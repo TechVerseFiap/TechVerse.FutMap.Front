@@ -80,7 +80,6 @@ export default function LoginPage() {
         </Button>
 
         <Button
-          type="submit"
           bgColor="bg-(--primary-color)"
           style="w-full"
           onClick={() => navigate(Routes.PlayerRegister)}
@@ -89,7 +88,7 @@ export default function LoginPage() {
         </Button>
 
         <div className="flex justify-between text-sm mt-2">
-          <Link to={Routes.CompanyRegister} className="text-green-600 hover:underline">
+          <Link to={Routes.RegisterCompany} className="text-green-600 hover:underline">
             Empresa?
           </Link>
           <Link
