@@ -1,12 +1,16 @@
 // src/routes/AppRoutes.jsx
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Routes } from "./routes.js";
+
+import ProtectedRoute from "./ProtectedRoute.jsx";
+
 import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
-import ProtectedRoute from "./ProtectedRoute.jsx";
-import MainLayout from "../pages/MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import PlayerRegister from "../pages/PlayerRegister.jsx"
+
+import MainLayout from "../pages/layouts/MainLayout.jsx";
+import AuthLayout from "../pages/layouts/AuthLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +30,18 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: Routes.Login,
-    Component: LoginPage
-  },
-  {
-    path: Routes.PlayerRegister,
-    Component: PlayerRegister
+    path: Routes.Auth,
+    Component: AuthLayout,
+    children: [
+      {
+        path: Routes.Login.replace(Routes.Auth + "/", ""),
+        Component: LoginPage
+      },
+      {
+        path: Routes.PlayerRegister.replace(Routes.Auth + "/", ""),
+        Component: PlayerRegister
+      },
+    ]
   },
   {
     path: Routes.Unknown,
