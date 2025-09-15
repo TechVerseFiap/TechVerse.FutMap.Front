@@ -1,5 +1,5 @@
 // src/routes/AppRoutes.jsx
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 import { Routes } from "./routes.js";
 
 import ProtectedRoute from "./ProtectedRoute.jsx";
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
     path: Routes.Auth,
     Component: AuthLayout,
     children: [
+      {
+        index: true,
+        element: <Navigate to={Routes.Login} replace />
+      },
       {
         path: Routes.Login.replace(Routes.Auth + "/", ""),
         Component: LoginPage
