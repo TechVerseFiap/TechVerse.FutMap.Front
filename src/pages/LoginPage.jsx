@@ -1,5 +1,8 @@
 import { Link } from "react-router";
 import logo from "../assets/logo.png";
+import FormInput from "../components/FormInput";
+import StandardButton from "../components/StandandButton";
+import { Routes } from "../routes/routes";
 
 export default function LoginPage() {
   return (
@@ -15,40 +18,12 @@ export default function LoginPage() {
         </h2>
 
         {/* Formulário */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-gray-600 text-sm">E-mail:</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-600 text-sm">Senha:</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full mt-1 p-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none"
-            />
-          </div>
-
-          {/* Botão Entrar */}
-          <button
-            type="submit"
-            className="w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
-          >
-            Entrar
-          </button>
-
-          {/* Botão Cadastrar */}
-          <Link
-            to="/register"
-            className="block text-center w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
-          >
-            Cadastrar
-          </Link>
+        <form className="space-y-4"> 
+          <FormInput label="E-mail" type="text" placeholder="Insira seu E-mail" />
+          <FormInput label="Senha" type="password" placeholder="Insira sua Senha" />
+          
+          <StandardButton text="Entrar"  />    
+          <StandardButton text="Cadastrar" route={Routes.Register} />    
 
           {/* Links adicionais */}
           <div className="flex justify-between text-sm mt-2">

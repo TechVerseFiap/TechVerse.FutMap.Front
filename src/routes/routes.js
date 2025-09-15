@@ -3,5 +3,5 @@ export const Routes = {
   Unknown: "*",
   Login: "login",
   Profile: "profile",
-  Event: "events",
+  Event: "events"
 };

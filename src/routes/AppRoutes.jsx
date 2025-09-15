@@ -1,10 +1,10 @@
 // src/routes/AppRoutes.jsx
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Routes } from "./routes.js";
+import MainLayout from "../pages/MainLayout.jsx"
 import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
-import MainLayout from "../pages/MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 
 const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   },
   {
     path: Routes.Login,
+    Component: LoginPage
+  },
+  {
+    path: Routes.Register,
     Component: LoginPage
   },
   {
