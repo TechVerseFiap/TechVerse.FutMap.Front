@@ -1,7 +1,10 @@
 import { Outlet } from "react-router";
 import logo from "/Logo-Vertical-Dark.png";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 export default function AuthLayout() {
+  useScrollToTop();
+
   return (
     <div className="min-h-screen flex flex-col bg-(--primary-color)">
       <div className="flex items-center justify-center pt-6 pb-20">
