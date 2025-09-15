@@ -7,7 +7,7 @@ import { playerRegisterSchema } from "../components/validations/playerRegisterSc
 import { useNavigate } from "react-router";
 import { Routes } from "../routes/routes"
 
-export default function PlayerRegister() {
+export default function RegisterPage() {
   const {
     handleSubmit,
     control,

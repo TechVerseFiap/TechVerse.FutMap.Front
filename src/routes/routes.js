@@ -4,7 +4,7 @@ export const Routes = {
   Event: "events",
   Auth: "/auth",
   Login: "/auth/login",
-  PlayerRegister: "/auth/register",
+  Register: "/auth/register",
   CompanyRegister: "/auth/register-company",
   ForgotPassword: "/auth/forgot-password",
   Unknown: "*",
