@@ -3,6 +3,9 @@
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    "peer-data-[state=checked]:hidden",
+  ],
   theme: {
     extend: {
       colors: {

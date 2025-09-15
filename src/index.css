@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import "tailwindcss";
+
 :root {
   --brand-emerald: #57c785;
   --primary-color: #10B981;
