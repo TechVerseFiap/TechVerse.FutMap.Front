@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import OptionCardList from "../components/OptionCardList";
 import ContainerOptions from "../components/ContainerOptions";
@@ -15,24 +14,29 @@ import {
     InformationIcon,
     ExitIcon
 } from "../components/icons/Icons";
+import { useQuery } from "@tanstack/react-query";
 
-export default function ProfilePage() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        async function fetchUser() {
-            try {
-                const response = await fetch(
-                    "https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users/3"
-                );
-                const data = await response.json();
-                setUser(data);
-            } catch (error) {
-                console.error("Erro ao buscar usuário:", error);
+export default function ProfilePage({ userId=3 }) {
+    const {
+        data: user,
+        isLoading,
+        error
+    } = useQuery({
+        queryKey: ['user', userId],
+        queryFn: async () => {
+            const response = await fetch(
+                `https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users/${userId}`
+            );
+            if (!response.ok) {
+                throw new Error('Failed to fetch user');
             }
-        }
-        fetchUser();
-    }, []);
+            return response.json();
+        },
+    });
+
+    if (error) {
+        console.error("Error fetching user", error);
+    }
 
     // Handlers
     function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
@@ -114,18 +118,38 @@ export default function ProfilePage() {
         },
     ];
 
+    if (error) {
+        return (
+            <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">
+                <div className="flex items-center justify-center p-6">
+                    <p className="text-red-500">Erro ao carregar perfil. Tente novamente.</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">
-            {user ? (
-                <ProfileHeader
-                    image={user.image}
-                    name={user.name}
-                    position={user.position}
-                    age={user.age}
-                />
-            ) : (
-                <p className="text-center text-gray-500">Carregando perfil...</p>
-            )}
+            {isLoading 
+                ? (
+                    <div className="flex flex-col items-center justify-center p-6 bg-(--primary-color) animate-shimmer">
+                        <div className="relative w-28 h-29">
+                            <div className="w-28 h-28 rounded-full bg-white bg-opacity-20 animate-pulse"></div>
+                            <div className="absolute bottom-1 right-1 w-9 h-9 rounded-full bg-white bg-opacity-20 animate-pulse"></div>
+                        </div>
+                        <div className="mt-3 h-6 w-36 bg-white bg-opacity-20 rounded animate-pulse"></div>
+                        <div className="mt-1 h-4 w-30 bg-white bg-opacity-20 rounded animate-pulse"></div>
+                    </div>
+                )
+                : (
+                    <ProfileHeader
+                        image={user.image}
+                        name={user.name}
+                        position={user.position}
+                        age={user.age}
+                    />
+                )
+            }
 
             <div className="p-4">
                 <OptionCardList items={optionsCardItems} className="mb-4" />
