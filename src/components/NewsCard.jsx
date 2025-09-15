@@ -1,24 +1,36 @@
-import SavedIcon from "./icons/SavedIcon";
+import { useState } from "react";
+import { Checkbox } from "./ui/checkbox";
+import { formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 export default function NewsCard({ title, desc, date, image }) {
+  const [flagged, setFlagged] = useState(false);
+
+  const handleToggle = () => {
+    setFlagged(prev => !prev);
+  };
+
   return (
-    <div className="flex min-h-[10vh] whitespace-normal bg-white shadow-lg rounded-[20px] overflow-hidden">
+    <div className="m-2 flex min-h-[10vh] whitespace-normal bg-white shadow-lg rounded-[20px] overflow-hidden">
       <img
-        src={image || "https://via.placeholder.com/150"}
-        alt="Imagem"
-        className="w-24 p-4 h-auto object-cover"
+        src={image}
+      className="w-30 p-4 rounded-[30px] h-auto object-cover"
       />
-      <div className="flex flex-col p-4 w- max-h-80%">
+      <div className="flex flex-col py-4 pr-4 w-full max-h-80%">
         <p className="text-lg sm:text-xl font-semibold text-gray-800">
-            {title}
+          {title}
         </p>
-        <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+        <p className="text-sm text-gray-600 mt-2 line-clamp-2 pr-5">
           {desc}
         </p>
-        <p className="text-xs text-gray-500 mt-2">{date}</p>
-      </div>
-      <div className="flex justify-end items-end p-4">
-        <SavedIcon className="w-4 h-4 text-gray-500" />
+        <div className="flex align-baseline justify-between items-end">
+          <p className="align-baseline text-2xs text-gray-500 mt-2">{
+          formatDistanceToNow(new Date(date), {
+            addSuffix: true,
+            locale: ptBR,
+          })}</p>
+          <Checkbox checked={flagged} onCheckedChange={handleToggle} />
+        </div>
       </div>
     </div>
   );

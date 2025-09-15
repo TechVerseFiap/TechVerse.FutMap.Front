@@ -5,7 +5,6 @@ import MainLayout from "../pages/MainLayout.jsx"
 import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
-import MainLayout from "../pages/MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 
 const router = createBrowserRouter([
