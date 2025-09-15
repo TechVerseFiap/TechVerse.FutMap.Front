@@ -6,5 +6,5 @@ export default function ProtectedRoute() {
     
     return isAuthenticated 
         ? <Outlet/> 
-        : <Navigate to={Routes.Test} replace />
+        : <Navigate to={Routes.Login} replace />
 }
