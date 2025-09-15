@@ -21,14 +21,26 @@ export default function FormInput({
       .slice(0, 14);
   };
 
-   const handleChange = (e) => {
+  const handleCnpjMask = (val) => {
+    return val
+      .replace(/\D/g, "")
+      .replace(/^(\d{2})(\d)/, "$1.$2")
+      .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+      .replace(/\.(\d{3})(\d)/, ".$1/$2")
+      .replace(/(\d{4})(\d)/, "$1-$2")
+      .slice(0, 18);
+  };
+
+  const handleChange = (e) => {
     let val = e.target.value;
 
     if (id === "cpf") {
       val = handleCpfMask(val);
+    } else if (id === "cnpj") {
+      val = handleCnpjMask(val);
     }
 
-    onChange?.(val); 
+    onChange?.(val);
   };
 
   return (
@@ -40,7 +52,7 @@ export default function FormInput({
       <div
         className={`
           rounded-xl border-3 transition-all
-          ${error ? "border-(--red-color)" : "focus-within:border-(--primary-color)"}          
+          ${error ? "border-(--red-color)" : "focus-within:border-(--primary-color)"}
         `}
       >
         <Input
