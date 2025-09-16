@@ -14,29 +14,13 @@ import {
     InformationIcon,
     ExitIcon
 } from "../components/icons/Icons";
-import { useQuery } from "@tanstack/react-query";
+import { getUser, clearLocalStorage } from "../hooks/useAuth";
+import { useNavigate } from "react-router";
+import { Routes } from "../routes/routes";
 
-export default function ProfilePage({ userId=3 }) {
-    const {
-        data: user,
-        isLoading,
-        error
-    } = useQuery({
-        queryKey: ['user', userId],
-        queryFn: async () => {
-            const response = await fetch(
-                `https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users/${userId}`
-            );
-            if (!response.ok) {
-                throw new Error('Failed to fetch user');
-            }
-            return response.json();
-        },
-    });
-
-    if (error) {
-        console.error("Error fetching user", error);
-    }
+export default function ProfilePage() {
+    const navigate = useNavigate()
+    const user = getUser()
 
     // Handlers
     function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
@@ -48,7 +32,10 @@ export default function ProfilePage({ userId=3 }) {
     function handleSecurity() { alert("Clicou Privacidade e Segurança"); }
     function handleHelp() { alert("Clicou Ajuda"); }
     function handleInformation() { alert("Clicou Sobre FutMap"); }
-    function handleExit() { alert("Clicou Sair"); }
+    function handleExit() { 
+        clearLocalStorage() 
+        navigate(Routes.Login)
+    }
 
     const optionsCardItems = [
         { icon: <EventIcon fill="#10B981" className="w-8 h-8" />, text: "Meus Eventos", onClick: handleClickMyEvent },
@@ -118,30 +105,11 @@ export default function ProfilePage({ userId=3 }) {
         },
     ];
 
-    if (error) {
-        return (
-            <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">
-                <div className="flex items-center justify-center p-6">
-                    <p className="text-red-500">Erro ao carregar perfil. Tente novamente.</p>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-12">
-            {isLoading 
-                ? (
-                    <div className="flex flex-col items-center justify-center p-6 bg-(--primary-color) animate-shimmer">
-                        <div className="relative w-28 h-29">
-                            <div className="w-28 h-28 rounded-full bg-white bg-opacity-20 animate-pulse"></div>
-                            <div className="absolute bottom-1 right-1 w-9 h-9 rounded-full bg-white bg-opacity-20 animate-pulse"></div>
-                        </div>
-                        <div className="mt-3 h-6 w-36 bg-white bg-opacity-20 rounded animate-pulse"></div>
-                        <div className="mt-1 h-4 w-30 bg-white bg-opacity-20 rounded animate-pulse"></div>
-                    </div>
-                )
-                : (
+            {
+                (
                     <ProfileHeader
                         image={user.image}
                         name={user.name}
