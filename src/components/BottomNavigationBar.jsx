@@ -5,7 +5,7 @@ import { EventIcon, MapIcon, ProfileIcon } from "./icons/Icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
 import { Routes } from "../routes/routes"
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const navItemType = {
   Events: "Eventos",
@@ -19,10 +19,16 @@ const navItems = [
   { type: navItemType.Profile, icon: ProfileIcon, route: Routes.Profile },
 ];
 
-export default function BottomNavigationBar() {
- const navigate = useNavigate();
+const getNavItemFromRoute = (pathname) => {
+  const currentNavItem = navItems.find(item => item.route == pathname.replace("/", ""));
+  return currentNavItem?.type || navItemType.Map;
+};
 
-  const [selected, setSelected] = useState(navItemType.Map);
+export default function BottomNavigationBar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [selected, setSelected] = useState(() => getNavItemFromRoute(location.pathname));
   const [positions, setPositions] = useState({});
   const containerRef = useRef(null);
   const itemRefs = useRef({});
@@ -32,7 +38,7 @@ export default function BottomNavigationBar() {
     if (!containerRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
     const newPositions = {};
-    
+
     for (const type of navItems.map(item => item.type)) {
       const el = itemRefs.current[type];
       if (el) {
@@ -42,6 +48,11 @@ export default function BottomNavigationBar() {
     }
     setPositions(newPositions);
   }
+
+  useEffect(() => {
+    const newSelected = getNavItemFromRoute(location.pathname);
+    setSelected(newSelected);
+  }, [location.pathname]);
 
   useEffect(() => {
     window.addEventListener("resize", recalcCutoutCirclePosition);
@@ -109,8 +120,7 @@ export default function BottomNavigationBar() {
             <button
               key={item.type}
               ref={(element) => (itemRefs.current[item.type] = element)}
-              onClick={() => { 
-                setSelected(item.type)
+              onClick={() => {
                 navigate(item.route)
               }}
               className="relative flex flex-col items-center justify-center w-20 h-20 pt-2"
