@@ -163,7 +163,7 @@ export default function RegisterCompanyPage() {
                 )}
             />
 
-            <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50 border border-green-200 w-fit max-w-md">
+            <div className="flex items-start gap-3 p-4 rounded-lg bg-green-50 border border-green-200 w-full">
                 <div className="text-green-600">
                     <VerifiedIcon fill="#22C55E" className="w-6 h-6" />
                 </div>
