@@ -53,7 +53,7 @@ export default function BottomNavigationBar() {
   }, [selected]);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-(--bg-white-color)">
+    <div className="fixed bottom-0 left-0 right-0 z-50 ">
       <svg className="absolute inset-0 w-full h-48 pointer-events-none">
         <defs>
           <mask id="cutout-mask">
