@@ -67,13 +67,21 @@ const news = [
         desc: "Melhores momentos das partidas desta temporada",
         date: "2025-09-15T13:00:00Z",
     },
+    {
+        image: "https://jogamiga.com.br/wp-content/uploads/2020/01/sinclair1.jpg",
+        title: "Seleção Feminina da Inglaterra vence Eurocopa",
+        desc: "Vitória histórica traz o título para casa após décadas",
+        date: "2025-09-15T13:00:00Z",
+    },
 ]
 
 export default function EventPage() {
     return (
         <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-20 px-5">
-            <p className="font-semibold">Eventos</p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="w-full py-2">
+                <p className="font-semibold">Eventos</p>
+            </div>
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {events.map((event, index) => (
                     <CardEvent
                         key={index}
@@ -89,16 +97,20 @@ export default function EventPage() {
                     />
                 ))}
             </div>
-            <p className="font-semibold">Noticias do futebol feminino</p>
-            {news.map((item, index) => (
-                <NewsCard
-                    key={index}
-                    image={item.image}
-                    title={item.title}
-                    desc={item.desc}
-                    date={item.date}
-                />
-            ))}
+            <div className="w-full py-2">
+                <p className="font-semibold">Noticias do futebol feminino</p>
+            </div>
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                {news.map((item, index) => (
+                    <NewsCard
+                        key={index}
+                        image={item.image}
+                        title={item.title}
+                        desc={item.desc}
+                        date={item.date}
+                    />
+                ))}
+            </div>
             <div className="mb-30"></div>
         </div>
     );
