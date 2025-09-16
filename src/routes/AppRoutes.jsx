@@ -18,21 +18,21 @@ const router = createBrowserRouter([
     path: Routes.Root,
     Component: ProtectedRoute,
     children: [
-      { 
+      {
         path: "",
-        Component: MainLayout, 
+        Component: MainLayout,
         children: [
           {
             path: Routes.Profile,
-            Component: ProfilePage
+            Component: ProfilePage,
           },
           {
             path: Routes.Event,
-            Component: EventPage
-          }
-        ]
-      }
-    ]
+            Component: EventPage,
+          },
+        ],
+      },
+    ],
   },
   {
     path: Routes.Auth,
@@ -40,27 +40,26 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={Routes.Login} replace />
+        element: <Navigate to={Routes.Login} replace />,
       },
       {
         path: Routes.Login.replace(Routes.Auth + "/", ""),
-        Component: LoginPage
+        Component: LoginPage,
       },
       {
         path: Routes.Register.replace(Routes.Auth + "/", ""),
-        Component: RegisterPage
+        Component: RegisterPage,
       },
-    {
+      {
         path: Routes.RegisterCompany.replace(Routes.Auth + "/", ""),
-        Component: RegisterCompanyPage
+        Component: RegisterCompanyPage,
       },
-    ]
+    ],
   },
   {
     path: Routes.Unknown,
-    Component: NotFoundPage
+    Component: NotFoundPage,
   },
-
 ]);
 
 export default function AppRoutes() {
