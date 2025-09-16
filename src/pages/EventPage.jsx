@@ -50,7 +50,9 @@ const news = [
 export default function EventPage() {
     return (
         <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-20 px-5">
-            <p className="font-semibold">Eventos</p>
+            <div className="w-full max-w-sm mx-auto">
+                <p className="font-semibold max-w-sm w-full mx-auto">Eventos</p>
+            </div>
             {events.map((event, index) => (
                 <CardEvent
                     key={index}
@@ -65,7 +67,9 @@ export default function EventPage() {
                     type={ event.type }
                 />
             ))}
-            <p className="font-semibold">Noticias do futebol feminino</p>
+            <div className="w-full max-w-sm mx-auto">
+               <p className="font-semibold">Noticias do futebol feminino</p>
+            </div>
             {news.map((item, index) => (
                 <NewsCard
                     key={index}
