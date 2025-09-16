@@ -6,10 +6,18 @@ import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 import { loginSchema } from "../components/validations/loginSchema";
 import FormInput from "../components/FormInput";
-import Button from "../components/StandardButton"
+import Button from "../components/StandardButton";
+import { useUsers, loginUser, getAuthenticated } from "../hooks/useAuth"; 
+import { useEffect } from "react";
 
 export default function LoginPage() {
+  const { data: users, isLoading, error } = useUsers();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (getAuthenticated())
+      navigateHome();
+  }, []);
 
   const {
     handleSubmit,
@@ -24,8 +32,14 @@ export default function LoginPage() {
   });
 
   const onSubmit = (data) => {
-    console.log("Form enviado ✅", data);
-    navigateHome()
+    if (isLoading || error) return;
+
+    if (loginUser(users, data)) {
+      navigateHome();
+      return
+    }
+      
+    alert("E-mail ou senha incorretos!");
   };
 
   function navigateHome() {
@@ -80,9 +94,12 @@ export default function LoginPage() {
         </Button>
 
         <Button
+          type="button"
           bgColor="bg-(--primary-color)"
           style="w-full"
-          onClick={() => navigate(Routes.PlayerRegister)}
+          onClick={() => {
+            navigate(Routes.Register)
+          }}
         >
           Cadastrar
         </Button>
