@@ -33,6 +33,18 @@
   }
 }
 
+@layer base {
+  html {
+    font-size: 100%;
+  }
+
+  @media (min-width: 1080px) {
+    html {
+      font-size: 150%;
+    }
+  }
+}
+
 .card {
   padding: 2em;
 }

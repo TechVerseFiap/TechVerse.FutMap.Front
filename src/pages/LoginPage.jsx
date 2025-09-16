@@ -101,9 +101,9 @@ export default function LoginPage() {
       </div>
 
       <div className="flex items-center my-6">
-        <hr className="flex-grow border-gray-300" />
+        <hr className="flex-grow border-black" />
         <span className="px-2 text-gray-500 text-sm">ou continue com</span>
-        <hr className="flex-grow border-gray-300" />
+        <hr className="flex-grow border-black" />
       </div>
 
       <div className="space-y-3">

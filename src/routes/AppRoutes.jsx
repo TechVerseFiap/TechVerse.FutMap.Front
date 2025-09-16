@@ -9,6 +9,7 @@ import EventPage from "../pages/EventPage.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import RegisterCompanyPage from "../pages/RegisterCompanyPage.jsx";
+import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx";
 
 import MainLayout from "../pages/layouts/MainLayout.jsx";
 import AuthLayout from "../pages/layouts/AuthLayout.jsx";
@@ -50,9 +51,13 @@ const router = createBrowserRouter([
         path: Routes.Register.replace(Routes.Auth + "/", ""),
         Component: RegisterPage
       },
-    {
+      { 
         path: Routes.RegisterCompany.replace(Routes.Auth + "/", ""),
         Component: RegisterCompanyPage
+      },
+      { 
+        path: Routes.ForgotPassword.replace(Routes.ForgotPassword + "/", ""),
+        Component: ForgotPasswordPage
       },
     ]
   },
