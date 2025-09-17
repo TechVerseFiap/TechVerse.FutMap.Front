@@ -14,7 +14,7 @@ import {
   BookmarkIcon,
   ClockIcon
 } from "./icons/Icons.jsx";
-import Button from "./StandardButton";
+import StandardButton from "./StandardButton";
 import Rating from "react-rating";
 
 export default function BottomDrawer({
@@ -288,15 +288,16 @@ export default function BottomDrawer({
             </div>
           </div>
 
-          {/* <Button
-            bgColor="bg-(--primary-color)"
-            icon={DirectionIcon}
-            padding="p-4"
-            style="w-full text-xl"
-            className="mb-4"
-          >
-            Get Directions
-          </Button> */}
+          <div className="w-full">
+            <StandardButton
+              bgColor="bg-(--primary-color)"
+              icon={<DirectionIcon/>}
+              padding="p-4"
+              style="w-full h-full text-xl"
+            >
+              Get Directions
+            </StandardButton>
+          </div>
 
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${
@@ -325,7 +326,7 @@ export default function BottomDrawer({
                     }
                   `}
                 >
-                  <Button
+                  <StandardButton
                     bgColor="bg-(--bg-white-color)"
                     textColor="text-(--black-color)"
                     padding="p-2"
@@ -333,7 +334,7 @@ export default function BottomDrawer({
                     style="w-full h-full text-[12px]"
                   >
                     {button.text}
-                  </Button>
+                  </StandardButton>
                 </div>
               ))}
             </div>
