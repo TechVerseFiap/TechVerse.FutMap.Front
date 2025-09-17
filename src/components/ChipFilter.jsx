@@ -47,7 +47,8 @@ export default function ChipFilter({ items = [], onChange }) {
         <Chip
           key={item.id}
           label={item.label}
-          icon={item.icon}
+          iconActive={item.iconActive}
+          iconDesactive={item.iconDesactive}
           isActive={selected.includes(item.id)}
           onClick={() => toggleSelect(item.id)}
         />
