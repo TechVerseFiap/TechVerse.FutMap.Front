@@ -1,4 +1,4 @@
-import Map from "../components/Map";
+import MapWrapper from "../components/MapWrapper";
 import ChipFilter from "../components/ChipFilter";
 import { useState, useMemo } from "react";
 import {
@@ -26,7 +26,7 @@ export default function HomePage() {
 
   return (
     <div className="relative w-full h-full">
-      <Map activeFilters={activeFilters}/>
+      <MapWrapper activeFilters={activeFilters}/>
 
       <div className="absolute top-20 left-0 right-0 z-50">
         <ChipFilter items={items} onChange={handleFilterChange} />
