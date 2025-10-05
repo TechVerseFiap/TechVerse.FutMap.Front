@@ -11,7 +11,7 @@ export default function NewsCard({ title, desc, date, image }) {
   };
 
   return (
-    <div className="my-2 flex min-h-[10vh] whitespace-normal bg-(--white-color) shadow-lg rounded-[20px] overflow-hidden">
+    <div className="bg-(--white-color) rounded-2xl shadow-md overflow-hidden w-full max-w-sm mx-auto my-2.5 flex min-h-[10vh] whitespace-normal">
       <img
         src={image}
         className="w-30 p-4 rounded-[30px] object-cover"

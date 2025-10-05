@@ -41,7 +41,11 @@ export function Icon({ pathData, className, viewBox = "0 0 24 24", fill = "#2222
     );
 }
 
-export function GraduationCapIcon({ className, fill }) {
+export function GraduationCapIconBlack({ className, fill="#222222" }) {
+    return <Icon pathData={iconPaths.graduationCap} width="17" height="16" viewBox="0 0 17 16" className={className} fill={fill} />;
+}
+
+export function GraduationCapIconWhite({ className, fill="#ffffff" }) {
     return <Icon pathData={iconPaths.graduationCap} width="17" height="16" viewBox="0 0 17 16" className={className} fill={fill} />;
 }
 
@@ -73,6 +77,10 @@ export function TrophyIconBlack({ className, fill="#222222" }) {
     return <Icon pathData={iconPaths.trophy} width="32" height="32" viewBox="0 0 32 32" className={className} fill={fill} />;
 }
 
+export function TrophyIconWhite({ className, fill="#ffffff" }) {
+    return <Icon pathData={iconPaths.trophy} width="32" height="32" viewBox="0 0 32 32" className={className} fill={fill} />;
+}
+
 export function UsersIcon({ className, fill }) {
     return <Icon pathData={iconPaths.users} width="15" height="12" viewBox="0 0 15 12" className={className} fill={fill} />;
 } 
@@ -89,7 +97,11 @@ export function DirectionIcon({ className, fill="#F0F0F0" }) {
     return <Icon pathData={iconPaths.direction} width="24" height="24" viewBox="0 0 24 24" className={className} fill={fill} />;
 }
 
-export function ClockIcon({ className, fill }) {
+export function ClockIcon({ className, fill="#222222"}) {
+    return <Icon pathData={iconPaths.clock} width="16" height="16" viewBox="0 0 16 16" className={className} fill={fill} />;
+}
+
+export function ClockIconWhite({ className, fill="#ffffff"}) {
     return <Icon pathData={iconPaths.clock} width="16" height="16" viewBox="0 0 16 16" className={className} fill={fill} />;
 }
 

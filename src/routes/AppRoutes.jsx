@@ -9,30 +9,33 @@ import EventPage from "../pages/EventPage.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import RegisterCompanyPage from "../pages/RegisterCompanyPage.jsx";
+import HomePage from "../pages/HomePage.jsx"
 
 import MainLayout from "../pages/layouts/MainLayout.jsx";
 import AuthLayout from "../pages/layouts/AuthLayout.jsx";
 
 const router = createBrowserRouter([
   {
-    path: Routes.Root,
     Component: ProtectedRoute,
     children: [
-      { 
-        path: "",
-        Component: MainLayout, 
+      {
+        Component: MainLayout,
         children: [
           {
+            path: Routes.Root,
+            Component: HomePage
+          },
+          {
             path: Routes.Profile,
-            Component: ProfilePage
+            Component: ProfilePage,
           },
           {
             path: Routes.Event,
-            Component: EventPage
-          }
-        ]
-      }
-    ]
+            Component: EventPage,
+          },
+        ],
+      },
+    ],
   },
   {
     path: Routes.Auth,
@@ -40,27 +43,26 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={Routes.Login} replace />
+        element: <Navigate to={Routes.Login} replace />,
       },
       {
         path: Routes.Login.replace(Routes.Auth + "/", ""),
-        Component: LoginPage
+        Component: LoginPage,
       },
       {
         path: Routes.Register.replace(Routes.Auth + "/", ""),
-        Component: RegisterPage
+        Component: RegisterPage,
       },
-    {
+      {
         path: Routes.RegisterCompany.replace(Routes.Auth + "/", ""),
-        Component: RegisterCompanyPage
+        Component: RegisterCompanyPage,
       },
-    ]
+    ],
   },
   {
     path: Routes.Unknown,
-    Component: NotFoundPage
+    Component: NotFoundPage,
   },
-
 ]);
 
 export default function AppRoutes() {

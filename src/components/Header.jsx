@@ -4,18 +4,22 @@ import { useState } from "react";
 import logo from "/Logo-Horizontal-Dark.png";
 import { NotificationIcon, SearchIcon } from "./icons/Icons";
 import { X } from "lucide-react";
+import { useLocation } from "react-router";
 
-export default function Header({ isSearchBarActive = true }) {
+export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const location = useLocation();
 
   const handleClose = () => {
     setIsExpanded(false);
     setSearchText("");
   };
 
+  const isSearchBarActive = location.pathname === "/";
+
   return (
-    <header className="fixed w-full z-10 flex bg-(--white-color) justify-between items-center rounded-b-[20px] p-4">
+    <header className="fixed w-full z-50 flex bg-(--white-color) justify-between items-center rounded-b-[20px] p-4">
       <img src={logo} alt="Logo do futmap" className="w-20" />
 
       <div className="flex items-center gap-3 flex-1 justify-end">
