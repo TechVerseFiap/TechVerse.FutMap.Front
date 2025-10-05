@@ -97,14 +97,15 @@ export default function BottomNavigationBar() {
 
       {positions[selected] && (
         <motion.div
-          layoutId="highlight-circle"
           className="absolute bg-(--primary-color) rounded-full shadow-lg pointer-events-none"
-          initial={false}
-          animate={{
+          style={{ 
+            top: isMobile ? -50 : -60,
             width: isMobile ? 100 : 120,
             height: isMobile ? 100 : 120,
-            left: positions[selected] - (isMobile ? 50 : 60),
-            top: isMobile ? -50 : -60,
+          }}
+          initial={false}
+          animate={{
+            x: positions[selected] - (isMobile ? 50 : 60)
           }}
           transition={{ type: "spring", stiffness: 350, damping: 20 }}
         />
