@@ -1,36 +1,75 @@
-import { useState } from "react";
-import Pin from "./Pin";
+import { useEffect, useRef, useState } from "react";
 import BottomDrawer from "./BottomDrawer";
-import { Map } from '@vis.gl/react-maplibre';
+import { Layer, Map, Source } from '@vis.gl/react-maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { clusterCountLayer, clusterLayer, unclusteredPointLayer } from "../assets/layers";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchGeoJsonData = async () => {
+  const response = await fetch('https://maplibre.org/maplibre-gl-js/docs/assets/earthquakes.geojson');
+  if (!response.ok) {
+    throw new Error('Error fetching GeoJSON data');
+  }
+  return response.json();
+};
 
 export default function MapWrapper({ activeFilters = [] }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const mapRef = useRef(null);
+  const { data: geojsonData } = useQuery({
+    queryKey: ["geojson"], 
+    queryFn: fetchGeoJsonData
+  })
 
   const handlePinClick = () => {
     setIsDrawerOpen(true);
   };
 
-  const pins = [
-    { type: "schools", style: { top: "20%", left: "30%" } },
-    { type: "schools", style: { top: "40%", left: "60%" } },
-    { type: "schools", style: { top: "70%", left: "20%" } },
-    { type: "tournaments", style: { top: "25%", left: "50%" } },
-    { type: "tournaments", style: { top: "60%", left: "40%" } },
-    { type: "events", style: { top: "50%", left: "70%" } },
-  ];
+  const onClick = async (event) => {
+    const feature = event.features[0];
+    if (!feature) {
+      return;
+    }
+    const clusterId = feature.properties.cluster_id;
+
+    const geojsonSource = mapRef.current.getSource('points');
+
+    const zoom = await geojsonSource.getClusterExpansionZoom(clusterId);
+
+    mapRef.current.easeTo({
+      center: feature.geometry.coordinates,
+      zoom,
+      duration: 500
+    });
+  };
 
   return (
     <>
       <div className="fixed inset-0 z-0 bg-(--bg-white-color)">
         <Map
           initialViewState={{
-            longitude: -100,
-            latitude: 40,
-            zoom: 3.5
+            latitude: -23.564052798969346,
+            longitude: -46.65239044319049,
+            zoom: 17.5
           }}
           mapStyle="map-light-style.json"
-        />
+          interactiveLayerIds={[clusterLayer.id]}
+          onClick={onClick}
+          ref={mapRef}
+        >
+          <Source
+            id="points"
+            type="geojson"
+            data={geojsonData}
+            cluster={true}
+            clusterMaxZoom={10}
+            clusterRadius={30}
+          >
+            <Layer {...clusterLayer}/>
+            <Layer {...clusterCountLayer}/>
+            <Layer {...unclusteredPointLayer}/>
+          </Source>
+        </Map>
       </div>
 
       <BottomDrawer
