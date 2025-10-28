@@ -5,10 +5,10 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { clusterCountLayer, clusterLayer, unclusteredPointLayer } from "../assets/layers";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchGeoJsonData = async () => {
-  const response = await fetch('https://maplibre.org/maplibre-gl-js/docs/assets/earthquakes.geojson');
+const fetchLocalGeoJsonData = async () => {
+  const response = await fetch('/locals.geojson');
   if (!response.ok) {
-    throw new Error('Error fetching GeoJSON data');
+    throw new Error('Error fetching local GeoJSON data');
   }
   return response.json();
 };
@@ -17,9 +17,9 @@ export default function MapWrapper({ activeFilters = [] }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const mapRef = useRef(null);
   const { data: geojsonData } = useQuery({
-    queryKey: ["geojson"], 
-    queryFn: fetchGeoJsonData
-  })
+    queryKey: ["local-geojson"], 
+    queryFn: fetchLocalGeoJsonData
+  });
 
   const handlePinClick = () => {
     setIsDrawerOpen(true);
