@@ -22,13 +22,13 @@ export const clusterCountLayer = {
 
 export const unclusteredPointLayer = {
   id: 'unclustered-point',
-  type: 'circle',
+  type: 'symbol',
   source: 'earthquakes',
   filter: ['!', ['has', 'point_count']],
-  paint: {
-    'circle-color': '#11b4da',
-    'circle-radius': 4,
-    'circle-stroke-width': 1,
-    'circle-stroke-color': '#fff'
-  }
+  layout: {
+    'icon-image': 'marker-icon',
+    'icon-size': 0.5,
+    'icon-allow-overlap': true,
+    'icon-ignore-placement': true,
+  },
 };
