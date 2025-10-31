@@ -1,6 +1,9 @@
+import { useState } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import OptionCardList from "../components/OptionCardList";
 import ContainerOptions from "../components/ContainerOptions";
+import OverlayCard from "../components/ProfileCard";
+
 import {
     EventIcon,
     BookmarkIcon,
@@ -8,8 +11,6 @@ import {
     ArrowRightIcon,
     NotificationIcon,
     LocationIcon,
-    SettingsIcon,
-    SecurityIcon,
     HelpIcon,
     InformationIcon,
     ExitIcon
@@ -21,6 +22,7 @@ import { Routes } from "../routes/routes";
 export default function ProfilePage() {
     const navigate = useNavigate()
     const user = getUser()
+    const [openCard, setOpenCard] = useState(null);
 
     // Handlers
     function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
@@ -28,10 +30,8 @@ export default function ProfilePage() {
     function handleUserInfo() { alert("Clicou Informações do usuário"); }
     function handleEvents() { alert("Clicou Inscrições em Eventos"); }
     function handleLocations() { alert("Clicou Locais Salvos"); }
-    function handlePreferences() { alert("Clicou Preferencias"); }
-    function handleSecurity() { alert("Clicou Privacidade e Segurança"); }
-    function handleHelp() { alert("Clicou Ajuda"); }
-    function handleInformation() { alert("Clicou Sobre FutMap"); }
+    function handleHelp() {setOpenCard("help");}
+    function handleInformation() {setOpenCard("about");}
     function handleExit() { 
         clearLocalStorage() 
         navigate(Routes.Login)
@@ -67,23 +67,9 @@ export default function ProfilePage() {
             rightIcon: <ArrowRightIcon className="w-5 h-5" />,
             onClick: handleLocations,
         },
-        {
-            leftIcon: <SettingsIcon className="w-5 h-5" />,
-            color: "bg-orange-100",
-            title: "Preferências",
-            description: "Configurações e filtros",
-            rightIcon: <ArrowRightIcon className="w-5 h-5" />,
-            onClick: handlePreferences,
-        },
     ];
 
     const optionsContainerAbout = [
-        {
-            leftIcon: <SecurityIcon className="w-5 h-5" />,
-            title: "Informações do Usuário",
-            rightIcon: <ArrowRightIcon className="w-5 h-5" />,
-            onClick: handleSecurity,
-        },
         {
             leftIcon: <HelpIcon className="w-5 h-5" />,
             title: "Ajuda & Suporte",
@@ -126,6 +112,40 @@ export default function ProfilePage() {
 
                 <ContainerOptions options={optionsContainerAbout} isAboutContainer={true} className="mb-20" />
             </div>
+
+            <OverlayCard
+                isOpen={!!openCard}
+                onClose={() => setOpenCard(null)}
+                title={openCard === "about" ? "Sobre o FutMap" : "Ajuda & Suporte"}
+                >
+                {openCard === "about" && (
+                    <div className="text-gray-600 space-y-2">
+                    <p>
+                        O <strong>FutMap</strong> é uma plataforma que conecta jogadores,
+                        torcedores e organizadores de eventos esportivos, com foco no
+                        futebol feminino e na inclusão digital.
+                    </p>
+                    <p>
+                        Nosso objetivo é fortalecer a visibilidade do esporte e criar uma
+                        comunidade colaborativa por meio da tecnologia.
+                    </p>
+                    </div>
+                )}
+
+                {openCard === "help" && (
+                    <div className="text-gray-600">
+                    <p>
+                        Para suporte técnico, envie um e-mail para{" "}
+                        <span className="text-green-600 font-medium">
+                        suporte@futmap.com
+                        </span>
+                        .
+                    </p>
+                    </div>
+                )}
+            </OverlayCard>
+
         </div>
+        
     );
 }
