@@ -1,12 +1,15 @@
 import { ClockIcon, UsersIcon } from "./icons/Icons";
 import StandardButton from "./StandardButton";
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 const EventType = {
   tournament: "bg-(--red-color)",
-  sieve: "bg-(--yellow-color)"
-}
+  sieve: "bg-(--yellow-color)",
+};
 
 export default function CardEvent({
+  eventId,
   image,
   title,
   description,
@@ -15,20 +18,24 @@ export default function CardEvent({
   time,
   people,
   onJoin,
-  type
+  type,
+  joined,
 }) {
   return (
     <div className="bg-(--white-color) rounded-2xl shadow-md overflow-hidden w-full max-w-sm mx-auto my-2.5">
       <div className="relative">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-40 object-cover"
-        />
-        <span className={`absolute top-2 left-2 ${EventType[type]} text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}>
-          {date}
+        <img src={image} alt={title} className="w-full h-40 object-cover" />
+        <span
+          className={`absolute top-2 left-2 ${EventType[type]} text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}
+        >
+          {formatDistanceToNow(new Date(date), {
+            addSuffix: true,
+            locale: ptBR,
+          })}
         </span>
-        <span className={`absolute top-2 right-2 bg-(--gray-color) text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}>
+        <span
+          className={`absolute top-2 right-2 bg-(--gray-color) text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md`}
+        >
           {distance}
         </span>
       </div>
@@ -50,12 +57,12 @@ export default function CardEvent({
 
         <div className="mt-3">
           <StandardButton
-            onClick={onJoin}
-            bgColor={EventType[type]}
+            onClick={() => onJoin(eventId)}
+            bgColor={joined ? "bg-gray-500" : EventType[type]}
             padding="py-3"
             style="w-full"
           >
-            Entrar no Torneio
+            {joined ? "Sair do Evento" : "Entrar no Evento"}
           </StandardButton>
         </div>
       </div>

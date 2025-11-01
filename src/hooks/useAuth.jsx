@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 
+
 export function useUsers() {
+  const URL_API = import.meta.env.VITE_API_URL; 
+
   return useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const response = await fetch(
-        `https://68c7351e442c663bd028fb2c.mockapi.io/futmap/api/users`
+        `${URL_API}/users`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch users");
