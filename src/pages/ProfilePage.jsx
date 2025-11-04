@@ -16,7 +16,7 @@ import {
     ExitIcon
 } from "../components/icons/Icons";
 import { getUser, clearLocalStorage } from "../hooks/useAuth";
-import { useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { Routes } from "../routes/routes";
 
 export default function ProfilePage() {
@@ -26,7 +26,9 @@ export default function ProfilePage() {
 
     // Handlers
     function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
-    function handleClickMyFavorites() { alert("Clicou Meus Favoritos"); }
+    function handleClickMyFavorites() { 
+        navigate(Routes.Favorite)    
+    }
     function handleUserInfo() { alert("Clicou Informações do usuário"); }
     function handleEvents() { alert("Clicou Inscrições em Eventos"); }
     function handleLocations() { alert("Clicou Locais Salvos"); }
@@ -144,7 +146,6 @@ export default function ProfilePage() {
                     </div>
                 )}
             </OverlayCard>
-
         </div>
         
     );

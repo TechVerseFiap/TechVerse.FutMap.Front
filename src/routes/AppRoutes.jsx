@@ -10,9 +10,11 @@ import ProfilePage from "../pages/ProfilePage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import RegisterCompanyPage from "../pages/RegisterCompanyPage.jsx";
 import HomePage from "../pages/HomePage.jsx"
+import FavoritesPage from "../pages/FavoritesPage.jsx"
 
 import MainLayout from "../pages/layouts/MainLayout.jsx";
 import AuthLayout from "../pages/layouts/AuthLayout.jsx";
+import ToolbarLayout from "../pages/layouts/ToolBarLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        Component: ToolbarLayout,
+        children: [
+          {
+            path: Routes.Favorite,
+            Component: FavoritesPage,
+            handle: { title: "Favoritos" }
+          }
+        ]
+      }
     ],
   },
   {
