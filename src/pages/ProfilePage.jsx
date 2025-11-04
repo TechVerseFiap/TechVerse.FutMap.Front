@@ -25,7 +25,7 @@ export default function ProfilePage() {
     const [openCard, setOpenCard] = useState(null);
 
     // Handlers
-    function handleClickMyEvent() { alert("Clicou Meus Eventos"); }
+    function handleClickMyEvent() { navigate(Routes.MyEvent); }
     function handleClickMyFavorites() { alert("Clicou Meus Favoritos"); }
     function handleUserInfo() { alert("Clicou Informações do usuário"); }
     function handleEvents() { alert("Clicou Inscrições em Eventos"); }

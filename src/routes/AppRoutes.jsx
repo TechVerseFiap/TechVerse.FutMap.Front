@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import EventPage from "../pages/EventPage.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import MyEvent from "../pages/EventListPage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import RegisterCompanyPage from "../pages/RegisterCompanyPage.jsx";
 import HomePage from "../pages/HomePage.jsx"
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           {
             path: Routes.Event,
             Component: EventPage,
+          },
+          {
+            path: Routes.MyEvent,
+            Component: MyEvent,
           },
         ],
       },
