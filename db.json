@@ -119,7 +119,6 @@
       "userId": "1"
     },
     {
-<<<<<<< HEAD
       "id": "9f47",
       "eventId": 1,
       "userId": "3"
@@ -133,11 +132,11 @@
       "id": "b8ba",
       "eventId": 4,
       "userId": "3"
-=======
+    },
+    {
       "id": "5b61",
       "eventId": 1,
       "userId": "1"
->>>>>>> origin/feat/page-favorites
     }
   ],
   "userNews": [
