@@ -126,18 +126,18 @@
   ],
   "userNews": [
     {
-      "id": "d093",
-      "newsId": 3,
+      "id": "9605",
+      "newsId": 1,
       "userId": "1"
     },
     {
-      "id": "194c",
-      "newsId": 4,
-      "userId": "1"
-    },
-    {
-      "id": "00e1",
+      "id": "5ab1",
       "newsId": 2,
+      "userId": "1"
+    },
+    {
+      "id": "315b",
+      "newsId": 3,
       "userId": "1"
     }
   ]
