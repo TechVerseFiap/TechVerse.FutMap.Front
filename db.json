@@ -117,12 +117,27 @@
       "id": "ecba",
       "eventId": 3,
       "userId": "1"
+    },
+    {
+      "id": "5b61",
+      "eventId": 1,
+      "userId": "1"
     }
   ],
   "userNews": [
     {
-      "id": "c28c",
+      "id": "9605",
+      "newsId": 1,
+      "userId": "1"
+    },
+    {
+      "id": "5ab1",
       "newsId": 2,
+      "userId": "1"
+    },
+    {
+      "id": "315b",
+      "newsId": 3,
       "userId": "1"
     }
   ]
