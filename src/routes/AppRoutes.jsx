@@ -7,10 +7,11 @@ import LoginPage from "../pages/LoginPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import EventPage from "../pages/EventPage.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import MyEvent from "../pages/EventListPage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import RegisterCompanyPage from "../pages/RegisterCompanyPage.jsx";
-import HomePage from "../pages/HomePage.jsx"
-import FavoritesPage from "../pages/FavoritesPage.jsx"
+import HomePage from "../pages/HomePage.jsx";
+import FavoritesPage from "../pages/FavoritesPage.jsx";
 
 import MainLayout from "../pages/layouts/MainLayout.jsx";
 import AuthLayout from "../pages/layouts/AuthLayout.jsx";
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: Routes.Root,
-            Component: HomePage
+            Component: HomePage,
           },
           {
             path: Routes.Profile,
@@ -43,10 +44,15 @@ const router = createBrowserRouter([
           {
             path: Routes.Favorite,
             Component: FavoritesPage,
-            handle: { title: "Favoritos" }
-          }
-        ]
-      }
+            handle: { title: "Favoritos" },
+          },
+          {
+            path: Routes.MyEvent,
+            Component: MyEvent,
+            handle: { title: "Meus Eventos" },
+          },
+        ],
+      },
     ],
   },
   {
