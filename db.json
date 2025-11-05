@@ -119,6 +119,7 @@
       "userId": "1"
     },
     {
+<<<<<<< HEAD
       "id": "9f47",
       "eventId": 1,
       "userId": "3"
@@ -132,11 +133,26 @@
       "id": "b8ba",
       "eventId": 4,
       "userId": "3"
+=======
+      "id": "5b61",
+      "eventId": 1,
+      "userId": "1"
+>>>>>>> origin/feat/page-favorites
     }
   ],
   "userNews": [
     {
-      "id": "c28c",
+      "id": "d093",
+      "newsId": 3,
+      "userId": "1"
+    },
+    {
+      "id": "194c",
+      "newsId": 4,
+      "userId": "1"
+    },
+    {
+      "id": "00e1",
       "newsId": 2,
       "userId": "1"
     }
