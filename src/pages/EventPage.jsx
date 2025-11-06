@@ -1,39 +1,14 @@
-import { useEffect, useState } from "react";
 import CardEvent from "../components/CardEvent";
 import NewsCard from "../components/NewsCard";
-import { getUser } from "../hooks/useAuth";
-import { apiGet, apiPost, apiDelete } from "../services/apiService";
 import { useUserNews } from "../hooks/useUserNews";
+import { useUserEvents } from "../hooks/useUserEvents";
 
 export default function EventPage() {
-    const urlApi = import.meta.env.VITE_API_URL;
-  const user = getUser();
-  const [events, setEvents] = useState([]);
-  const [userEvents, setUserEvents] = useState([]);
+  const { events, userEvents, joinEvent, loading, error } = useUserEvents();
   const { news, userNews, toggleFavorite } = useUserNews();
 
-  useEffect(() => {
-    Promise.all([
-      apiGet(`${urlApi}/events`),
-      apiGet(`${urlApi}/userEvents?userId=${user.id}`)
-    ]).then(([eventsData, userEventsData]) => {
-      setEvents(eventsData);
-      setUserEvents(userEventsData);
-    });
-  }, [urlApi, user.id]);
-
-  async function joinEvent(eventId) {
-    const joined = userEvents.some(ue => ue.eventId === eventId);
-    if (joined) {
-      const target = userEvents.find(ue => ue.eventId === eventId);
-      await apiDelete(`${urlApi}/userEvents/${target.id}`);
-      setUserEvents(prev => prev.filter(ue => ue.id !== target.id));
-    } else {
-      const newEvent = { eventId, userId: user.id };
-      const created = await apiPost(`${urlApi}/userEvents`, newEvent);
-      setUserEvents(prev => [...prev, created]);
-    }
-  }
+  if (loading) return <div className="text-center p-5">Carregando eventos...</div>;
+  if (error) return <div className="text-center text-red-600 p-5">{error}</div>;
 
   return (
     <div className="bg-(--bg-white-color) min-h-screen flex flex-col pt-20 px-5">
@@ -43,7 +18,7 @@ export default function EventPage() {
 
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {events.map((event, index) => {
-          const isJoined = userEvents.some((ue) => ue.eventId === event.eventId);
+          const isJoined = userEvents.some(ue => ue.eventId === event.eventId);
           return (
             <CardEvent
               key={index}
@@ -70,7 +45,7 @@ export default function EventPage() {
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {news.map((item, index) => {
           const isSaved = userNews.some((un) => un.newsId === item.newsId);
-          console.log(`Notica ${item.newsId}:  ${isSaved}`)
+          console.log(`Notica ${item.newsId}:  ${isSaved}`);
           return (
             <NewsCard
               key={index}

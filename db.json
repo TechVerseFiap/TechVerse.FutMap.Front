@@ -26,6 +26,42 @@
       "email": "stewart@gmail.com",
       "senha": "Senha123",
       "id": "3"
+    },
+    {
+      "id": "255f",
+      "name": "Diogo",
+      "position": "Atacante",
+      "age": 18,
+      "image": "https://avatars.githubusercontent.com/u/95046421?v=4",
+      "email": "limaa.diogi@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "9437",
+      "name": "Lucas Reis",
+      "position": "Goleiro",
+      "age": 18,
+      "image": "https://avatars.githubusercontent.com/u/202447875?v=4",
+      "email": "lucas@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "9ab7",
+      "name": "Teste Toast",
+      "position": "Atacante",
+      "age": 12,
+      "image": "https://via.placeholder.com/150",
+      "email": "teste.toast@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "688b",
+      "name": "teste novo login",
+      "position": "Zagueiro",
+      "age": 12,
+      "image": "https://static.thenounproject.com/png/236432-200.png",
+      "email": "novo.login@gmail.com",
+      "senha": "Senha121"
     }
   ],
   "events": [
@@ -114,11 +150,6 @@
   ],
   "userEvents": [
     {
-      "id": "ecba",
-      "eventId": 3,
-      "userId": "1"
-    },
-    {
       "id": "9f47",
       "eventId": 1,
       "userId": "3"
@@ -136,6 +167,11 @@
     {
       "id": "5b61",
       "eventId": 1,
+      "userId": "1"
+    },
+    {
+      "id": "1177",
+      "eventId": 4,
       "userId": "1"
     }
   ],
