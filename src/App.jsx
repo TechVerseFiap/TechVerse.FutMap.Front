@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRoutes from "./routes/AppRoutes";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -8,14 +9,17 @@ const queryClient = new QueryClient({
       cacheTime: 10 * 60 * 1000,
       retry: 3,
       refetchOnWindowFocus: false,
-    }
-  }
+    },
+  },
 });
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AppRoutes />
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <AppRoutes />
+      </QueryClientProvider>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 }

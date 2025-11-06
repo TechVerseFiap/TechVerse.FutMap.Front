@@ -1,38 +1,35 @@
-import { useQuery } from "@tanstack/react-query";
+const URL_API = import.meta.env.VITE_API_URL;
 
+export async function loginUser(data) {
+  try {
+    const response = await fetch(
+      `${URL_API}/users?email=${data.email}&senha=${data.password}`
+    );
+    const result = await response.json();
 
-export function useUsers() {
-  const URL_API = import.meta.env.VITE_API_URL; 
-
-  return useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const response = await fetch(
-        `${URL_API}/users`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch users");
-      }
-      return response.json();
-    },
-  });
+    if (result.length > 0) {
+      const user = result[0];
+      setAuthenticated(true, user);
+      return { success: true, user };
+    } else {
+      return { success: false, message: "Usuário ou senha incorretos." };
+    }
+  } catch (error) {
+    console.error("Erro ao fazer login:", error);
+    return { success: false, message: "Erro ao conectar ao servidor." };
+  }
 }
 
-export function loginUser(users, data) {
-  if (!users || !data) return false;
-  
-  let user = users.find(
-    (user) => user.email === data.email && user.senha === data.password
-  );
-
-  let isUserExist = !!user;
-
-  setAuthenticated(isUserExist, user);
-  return isUserExist;
+export function logoutUser() {
+  localStorage.removeItem("user");
+  localStorage.removeItem("isAuthenticated");
 }
 
-export function clearLocalStorage(){
-  localStorage.clear()
+function setAuthenticated(isAuthenticated, user) {
+  if (isAuthenticated) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+  localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
 }
 
 export function getAuthenticated() {
@@ -43,10 +40,6 @@ export function getUser() {
   return JSON.parse(localStorage.getItem("user"));
 }
 
-function setAuthenticated(isAuthenticated, user) {
-  if (isAuthenticated) {
-    localStorage.setItem("user", JSON.stringify(user));
-  }
-  localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-
+export function clearLocalStorage() {
+  localStorage.clear();
 }

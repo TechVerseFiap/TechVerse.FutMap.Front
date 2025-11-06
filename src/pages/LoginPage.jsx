@@ -1,22 +1,19 @@
 import { Routes } from "../routes/routes";
-import { Link, Route, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import google from "../assets/google.png";
-import apple from "../assets/apple.png";
 import { loginSchema } from "../components/validations/loginSchema";
 import FormInput from "../components/FormInput";
 import Button from "../components/StandardButton";
-import { useUsers, loginUser, getAuthenticated } from "../hooks/useAuth"; 
+import { loginUser, getAuthenticated } from "../hooks/useAuth";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 export default function LoginPage() {
-  const { data: users, isLoading, error } = useUsers();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (getAuthenticated())
-      navigateHome();
+    if (getAuthenticated()) navigateHome();
   }, []);
 
   const {
@@ -28,22 +25,22 @@ export default function LoginPage() {
     defaultValues: {
       email: "",
       password: "",
-    }
+    },
   });
 
-  const onSubmit = (data) => {
-    if (isLoading || error) return;
+  const onSubmit = async (data) => {
+    const res = await loginUser(data);
 
-    if (loginUser(users, data)) {
+    if (res.success) {
+      toast.success(`Bem-vinda, ${res.user.name}!`);
       navigateHome();
-      return
+    } else {
+      toast.error(res.message || "E-mail ou senha incorretos!");
     }
-      
-    alert("E-mail ou senha incorretos!");
   };
 
   function navigateHome() {
-    navigate(Routes.Root, { replace: true })
+    navigate(Routes.Root, { replace: true });
   }
 
   return (
@@ -85,11 +82,7 @@ export default function LoginPage() {
           )}
         />
 
-        <Button
-          type="submit"
-          bgColor="bg-(--primary-color)"
-          style="w-full"
-        >
+        <Button type="submit" bgColor="bg-(--primary-color)" style="w-full">
           Entrar
         </Button>
 
@@ -97,41 +90,10 @@ export default function LoginPage() {
           type="button"
           bgColor="bg-(--primary-color)"
           style="w-full"
-          onClick={() => {
-            navigate(Routes.Register)
-          }}
+          onClick={() => navigate(Routes.Register)}
         >
           Cadastrar
         </Button>
-
-        <div className="flex justify-between text-sm mt-2">
-          <Link to={Routes.RegisterCompany} className="text-green-600 hover:underline">
-            Empresa?
-          </Link>
-          <Link
-            to={Routes.ForgotPassword}
-            className="text-green-600 hover:underline"
-          >
-            Esqueceu a senha?
-          </Link>
-        </div>
-      </div>
-
-      <div className="flex items-center my-6">
-        <hr className="flex-grow border-gray-300" />
-        <span className="px-2 text-gray-500 text-sm">ou continue com</span>
-        <hr className="flex-grow border-gray-300" />
-      </div>
-
-      <div className="space-y-3">
-        <button className="w-full flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-2 hover:bg-gray-100 transition">
-          <img src={google} alt="Google Logo" className="w-5 h-5" />
-          <span>Google</span>
-        </button>
-        <button className="w-full flex items-center justify-center gap-3 bg-black text-white rounded-lg py-2 hover:bg-gray-900 transition">
-          <img src={apple} alt="Apple Logo" className="w-5 h-5" />
-          <span>Apple</span>
-        </button>
       </div>
     </form>
   );

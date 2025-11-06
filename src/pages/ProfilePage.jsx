@@ -3,14 +3,12 @@ import ProfileHeader from "../components/ProfileHeader";
 import OptionCardList from "../components/OptionCardList";
 import ContainerOptions from "../components/ContainerOptions";
 import OverlayCard from "../components/ProfileCard";
+import  UserEventChart  from "../components/UserEventChar"
 
 import {
   EventIcon,
   BookmarkIcon,
-  ProfileIcon,
   ArrowRightIcon,
-  NotificationIcon,
-  LocationIcon,
   HelpIcon,
   InformationIcon,
   ExitIcon,
@@ -24,22 +22,13 @@ export default function ProfilePage() {
   const user = getUser();
   const [openCard, setOpenCard] = useState(null);
 
-  // Handlers
   function handleClickMyEvent() {
     navigate(Routes.MyEvent);
   }
   function handleClickMyFavorites() {
     navigate(Routes.Favorite);
   }
-  function handleUserInfo() {
-    alert("Clicou Informações do usuário");
-  }
-  function handleEvents() {
-    alert("Clicou Inscrições em Eventos");
-  }
-  function handleLocations() {
-    alert("Clicou Locais Salvos");
-  }
+
   function handleHelp() {
     setOpenCard("help");
   }
@@ -64,32 +53,6 @@ export default function ProfilePage() {
     },
   ];
 
-  const optionsContainerPreferences = [
-    {
-      leftIcon: <ProfileIcon fill="#3B82F6" className="w-5 h-5" />,
-      color: "bg-blue-100",
-      title: "Informações do Usuário",
-      description: "Detalhes da conta",
-      rightIcon: <ArrowRightIcon className="w-5 h-5" />,
-      onClick: handleUserInfo,
-    },
-    {
-      leftIcon: <NotificationIcon fill="#9333EA" className="w-5 h-5" />,
-      color: "bg-purple-100",
-      title: "Inscrições em Eventos",
-      description: "Gerenciar notificações",
-      rightIcon: <ArrowRightIcon className="w-5 h-5" />,
-      onClick: handleEvents,
-    },
-    {
-      leftIcon: <LocationIcon className="w-5 h-5" />,
-      color: "bg-green-100",
-      title: "Locais Salvos",
-      description: "Preferências de locais",
-      rightIcon: <ArrowRightIcon className="w-5 h-5" />,
-      onClick: handleLocations,
-    },
-  ];
 
   const optionsContainerAbout = [
     {
@@ -127,10 +90,7 @@ export default function ProfilePage() {
       <div className="p-4">
         <OptionCardList items={optionsCardItems} className="mb-4" />
 
-        <ContainerOptions
-          options={optionsContainerPreferences}
-          className="mb-4"
-        />
+        <UserEventChart />
 
         <ContainerOptions
           options={optionsContainerAbout}
