@@ -108,6 +108,10 @@ export default function BottomDrawer({
   };
 
   useEffect(() => {
+    setRating(ratingValue);
+  }, [ratingValue]);
+
+  useEffect(() => {
     if (isDragging) {
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
@@ -140,7 +144,7 @@ export default function BottomDrawer({
               <div
                 className={`transition-all duration-700 ease-in-out 
                   ${
-                    isExpanded ? "w-full h-32 mb-4" : "w-18 h-18 flex-shrink-0"
+                    isExpanded ? "w-full h-32 mb-4" : "w-18 h-18 shrink-0"
                   } rounded-lg overflow-hidden`}
               >
                 {placeImgUrl ? (
@@ -154,7 +158,7 @@ export default function BottomDrawer({
                 ) : (
                   <div
                     className={`
-                      bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg
+                      bg-linear-to-br from-blue-600 to-blue-800 rounded-lg
                       flex items-center justify-center text-white text-xs font-bold text-center leading-tight
                       transition-all duration-700 ease-in-out
                       ${isExpanded ? "w-full h-32" : "w-18 h-18"}
