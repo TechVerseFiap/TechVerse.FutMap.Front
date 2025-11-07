@@ -20,15 +20,26 @@ export const clusterCountLayer = {
   }
 };
 
+export const MARKER_CONFIG = {
+  school: "/School-Marker.png",
+  tournament: "/Tournment-Marker.png",
+  event: "/Event-Marker.png",
+};
+
 export const unclusteredPointLayer = {
-  id: 'unclustered-point',
-  type: 'symbol',
-  source: 'earthquakes',
-  filter: ['!', ['has', 'point_count']],
+  id: "unclustered-point",
+  type: "symbol",
+  source: "points",
+  filter: ["!", ["has", "point_count"]],
   layout: {
-    'icon-image': 'marker-icon',
-    'icon-size': 0.5,
-    'icon-allow-overlap': true,
-    'icon-ignore-placement': true,
+    "icon-image": [
+      "match",
+      ["get", "type"],
+      ...Object.keys(MARKER_CONFIG).flatMap((key) => [key, `marker-${key}`]),
+      "school", // default
+    ],
+    "icon-size": 0.6,
+    "icon-allow-overlap": true,
+    "icon-anchor": "bottom",
   },
 };
