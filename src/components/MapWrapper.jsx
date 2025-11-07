@@ -5,10 +5,10 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { clusterCountLayer, clusterLayer, unclusteredPointLayer } from "../assets/layers";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchGeoJsonData = async () => {
-  const response = await fetch('https://maplibre.org/maplibre-gl-js/docs/assets/earthquakes.geojson');
+const fetchLocalGeoJsonData = async () => {
+  const response = await fetch('/locals.geojson');
   if (!response.ok) {
-    throw new Error('Error fetching GeoJSON data');
+    throw new Error('Error fetching local GeoJSON data');
   }
   return response.json();
 };
@@ -17,9 +17,27 @@ export default function MapWrapper({ activeFilters = [] }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const mapRef = useRef(null);
   const { data: geojsonData } = useQuery({
-    queryKey: ["geojson"], 
-    queryFn: fetchGeoJsonData
-  })
+    queryKey: ["local-geojson"], 
+    queryFn: fetchLocalGeoJsonData
+  });
+
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = mapRef.current.getMap();
+
+      map.on('load', () => {
+        // Load custom marker icon
+        map.loadImage('https://static.thenounproject.com/png/marker-icon-1629327-512.png', (error, image) => {
+          if (error) throw error;
+
+          // Add image only if not already added
+          if (!map.hasImage('marker-icon')) {
+            map.addImage('marker-icon', image);
+          }
+        });
+      });
+    }
+  }, []);
 
   const handlePinClick = () => {
     setIsDrawerOpen(true);
@@ -65,9 +83,9 @@ export default function MapWrapper({ activeFilters = [] }) {
             clusterMaxZoom={10}
             clusterRadius={30}
           >
-            <Layer {...clusterLayer}/>
-            <Layer {...clusterCountLayer}/>
-            <Layer {...unclusteredPointLayer}/>
+            <Layer {...clusterLayer} />
+            <Layer {...clusterCountLayer} />
+            <Layer {...unclusteredPointLayer} />
           </Source>
         </Map>
       </div>

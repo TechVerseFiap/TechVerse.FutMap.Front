@@ -4,25 +4,15 @@ import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import { EventIcon, MapIcon, ProfileIcon } from "./icons/Icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 import CustomCutoutShape from "./CustomCutoutShape";
-import { Routes } from "../routes/routes"
 import { useLocation, useNavigate } from "react-router";
+import { navItemType, navItems, getNavItemFromRoute } from "../utils/navigation";
 
-const navItemType = {
-  Events: "Eventos",
-  Map: "Mapa",
-  Profile: "Perfil",
-};
-
-const navItems = [
-  { type: navItemType.Events, icon: EventIcon, route: Routes.Event },
-  { type: navItemType.Map, icon: MapIcon, route: Routes.Root },
-  { type: navItemType.Profile, icon: ProfileIcon, route: Routes.Profile },
-];
-
-const getNavItemFromRoute = (pathname) => {
-  const currentNavItem = navItems.find(item => item.route == pathname.replace("/", ""));
-  return currentNavItem?.type || navItemType.Map;
-};
+// Add icons to navItems
+const navItemsWithIcons = navItems.map(item => ({
+  ...item,
+  icon: item.type === navItemType.Events ? EventIcon : 
+        item.type === navItemType.Map ? MapIcon : ProfileIcon
+}));
 
 export default function BottomNavigationBar() {
   const navigate = useNavigate();
@@ -39,7 +29,7 @@ export default function BottomNavigationBar() {
     const containerRect = containerRef.current.getBoundingClientRect();
     const newPositions = {};
 
-    for (const type of navItems.map(item => item.type)) {
+    for (const type of navItemsWithIcons.map(item => item.type)) {
       const el = itemRefs.current[type];
       if (el) {
         const rect = el.getBoundingClientRect();
@@ -114,7 +104,7 @@ export default function BottomNavigationBar() {
         ref={containerRef}
         className="relative flex justify-evenly items-end h-20"
       >
-        {navItems.map((item) => {
+        {navItemsWithIcons.map((item) => {
           const isSelected = selected === item.type;
           return (
             <button
