@@ -5,6 +5,10 @@ A plataforma oferece autenticação, cadastro de usuários, exibição de mapas 
 
 ---
 
+## Deploy
+
+Vercel: [FutMap](https://futmap.vercel.app)
+
 ## 🚀 Funcionalidades
 
 - **Autenticação e Registro**
