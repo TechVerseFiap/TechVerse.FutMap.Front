@@ -177,6 +177,10 @@ export function ArrowLeftIcon({ className, fill="#4B5563" }) {
     return <Icon pathData={iconPaths.arrowLeft} width="13" height="11" viewBox="0 0 13 11" className={className} fill={fill} />;
 }
 
+export function ArrowLeftIconBlack({ className, fill="#000" }) {
+    return <Icon pathData={iconPaths.arrowLeft} width="13" height="11" viewBox="0 0 13 11" className={className} fill={fill} />;
+}
+
 export function CompanyIcon({ className, fill }) {
     return <Icon pathData={iconPaths.company} width="13" height="16" viewBox="0 0 13 16" className={className} fill={fill} />;
 }

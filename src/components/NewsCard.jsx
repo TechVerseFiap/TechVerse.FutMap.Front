@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Checkbox } from "./ui/checkbox";
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-export default function NewsCard({ title, desc, date, image }) {
-  const [flagged, setFlagged] = useState(false);
+export default function NewsCard({ id, title, desc, date, image, isFlagged, onCLick }) {
+  const [flagged, setFlagged] = useState(isFlagged);
+
+  useEffect(() => {
+    setFlagged(isFlagged);
+  }, [isFlagged]);
 
   const handleToggle = () => {
     setFlagged(prev => !prev);
+    onCLick(id)
   };
 
   return (

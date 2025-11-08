@@ -1,0 +1,195 @@
+{
+  "users": [
+    {
+      "name": "Marta Rodrigues",
+      "image": "https://plus.unsplash.com/premium_photo-1706830553449-34072101c746?q=80&w=400&auto=format&fit=crop",
+      "position": "Atacante",
+      "age": 39,
+      "email": "marta@gmail.com",
+      "senha": "Senha121",
+      "id": "1"
+    },
+    {
+      "name": "Priscilla Hickle",
+      "image": "https://images.unsplash.com/photo-1695203063317-e396f11083dc?q=80&w=726&auto=format&fit=crop",
+      "position": "Meio Campo",
+      "age": 15,
+      "email": "priscilla@gmail.com",
+      "senha": "Senha122",
+      "id": "2"
+    },
+    {
+      "name": "Stewart Lehner",
+      "image": "https://images.unsplash.com/photo-1615912265840-0207813af92e?q=80&w=870&auto=format&fit=crop",
+      "position": "Goleira",
+      "age": 10,
+      "email": "stewart@gmail.com",
+      "senha": "Senha123",
+      "id": "3"
+    },
+    {
+      "id": "255f",
+      "name": "Diogo",
+      "position": "Atacante",
+      "age": 18,
+      "image": "https://avatars.githubusercontent.com/u/95046421?v=4",
+      "email": "limaa.diogi@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "9437",
+      "name": "Lucas Reis",
+      "position": "Goleiro",
+      "age": 18,
+      "image": "https://avatars.githubusercontent.com/u/202447875?v=4",
+      "email": "lucas@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "9ab7",
+      "name": "Teste Toast",
+      "position": "Atacante",
+      "age": 12,
+      "image": "https://via.placeholder.com/150",
+      "email": "teste.toast@gmail.com",
+      "senha": "Senha123"
+    },
+    {
+      "id": "688b",
+      "name": "teste novo login",
+      "position": "Zagueiro",
+      "age": 12,
+      "image": "https://static.thenounproject.com/png/236432-200.png",
+      "email": "novo.login@gmail.com",
+      "senha": "Senha121"
+    }
+  ],
+  "events": [
+    {
+      "eventId": 1,
+      "image": "https://media.istockphoto.com/id/1220336473/pt/foto/girls-enjoying-soccer-during-a-football-match.jpg?s=612x612&w=0&k=20&c=71oYJQr-wkC7c9vqO_cW3CtY0HdQk86pJoC8RyS88Mc=",
+      "title": "Jogo Amistoso Colegas de OZ",
+      "description": "Jogo amistoso",
+      "date": "2025-10-28",
+      "distance": "2.3Km",
+      "time": "10:00h",
+      "people": "50",
+      "type": "tournament",
+      "id": "21ba"
+    },
+    {
+      "eventId": 2,
+      "image": "https://media.istockphoto.com/id/1173932562/pt/foto/teens-in-action-playing-soccer-and-practicing-penalty-kicks-for-goalkeepers.jpg?s=612x612&w=0&k=20&c=oKCkVZrw2hdE09_c4PA6WgXzZJ-7mnctj0wePQeNGxE=",
+      "title": "Peneira Corinthians",
+      "description": "Peneira do coringão",
+      "date": "2025-11-02",
+      "distance": "6.3Km",
+      "time": "19:00h",
+      "people": "500",
+      "type": "sieve",
+      "id": "68e9"
+    },
+    {
+      "eventId": 3,
+      "image": "https://media.istockphoto.com/id/1420058356/pt/foto/cheerful-female-soccer-players-celebrating-victory-at-the-stadium.jpg?s=1024x1024&w=is&k=20&c=EYJGO5MNbmqBNuCATqxTKd1VyTOW8kHQIdDG5bOOoAg=",
+      "title": "Torneio jovem feminino",
+      "description": "Academia de esportes",
+      "date": "2025-10-29",
+      "distance": "2.3Km",
+      "time": "10:00h",
+      "people": "23",
+      "type": "tournament",
+      "id": "bf32"
+    },
+    {
+      "eventId": 4,
+      "image": "https://media.istockphoto.com/id/1485983624/pt/foto/close-up-of-female-player-exercising-with-ball-on-soccer-training-at-the-stadium.jpg?s=1024x1024&w=is&k=20&c=R5a0thJ7xbvsWliX2iOHU3Y9_j1mwWcHe8CyJ_WDOrM=",
+      "title": "Peneira do Palmeiras",
+      "description": "Peneira do Palmeiras",
+      "date": "2025-11-15",
+      "distance": "2.0Km",
+      "time": "11:00h",
+      "people": "250",
+      "type": "sieve",
+      "id": "3473"
+    }
+  ],
+  "news": [
+    {
+      "newsId": 1,
+      "image": "https://jogamiga.com.br/wp-content/uploads/2020/01/sinclair1.jpg",
+      "title": "Seleção Feminina da Inglaterra vence Eurocopa",
+      "desc": "Vitória histórica traz o título para casa após décadas",
+      "date": "2025-09-15T13:00:00Z",
+      "id": "7a48"
+    },
+    {
+      "newsId": 2,
+      "image": "https://dt5602vnjxv0c.cloudfront.net/portals/11778/images/opening%20day%202018/img_1619resize.jpeg",
+      "title": "Lançamento do Programa de Desenvolvimento Juvenil",
+      "desc": "Nova iniciativa para apoiar jovens jogadoras",
+      "date": "2025-09-15T13:00:00Z",
+      "id": "95d2"
+    },
+    {
+      "newsId": 3,
+      "image": "https://pbs.twimg.com/media/GPKHmF2W8AA4kg4.jpg",
+      "title": "Destaques da Temporada da WSL",
+      "desc": "Melhores momentos das partidas desta temporada",
+      "date": "2025-09-15T13:00:00Z",
+      "id": "fe94"
+    },
+    {
+      "newsId": 4,
+      "image": "https://jogamiga.com.br/wp-content/uploads/2020/01/sinclair1.jpg",
+      "title": "Seleção Feminina da Inglaterra vence Eurocopa",
+      "desc": "Vitória histórica traz o título para casa após décadas",
+      "date": "2025-09-15T13:00:00Z",
+      "id": "ce9b"
+    }
+  ],
+  "userEvents": [
+    {
+      "id": "9f47",
+      "eventId": 1,
+      "userId": "3"
+    },
+    {
+      "id": "5240",
+      "eventId": 2,
+      "userId": "3"
+    },
+    {
+      "id": "b8ba",
+      "eventId": 4,
+      "userId": "3"
+    },
+    {
+      "id": "5b61",
+      "eventId": 1,
+      "userId": "1"
+    },
+    {
+      "id": "1177",
+      "eventId": 4,
+      "userId": "1"
+    }
+  ],
+  "userNews": [
+    {
+      "id": "9605",
+      "newsId": 1,
+      "userId": "1"
+    },
+    {
+      "id": "5ab1",
+      "newsId": 2,
+      "userId": "1"
+    },
+    {
+      "id": "315b",
+      "newsId": 3,
+      "userId": "1"
+    }
+  ]
+}
