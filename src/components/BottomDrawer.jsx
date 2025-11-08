@@ -121,6 +121,7 @@ export default function BottomDrawer({
         document.removeEventListener("mouseup", handleMouseUp);
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging, startY, currentY, isExpanded]);
 
   return (
@@ -158,8 +159,7 @@ export default function BottomDrawer({
                 ) : (
                   <div
                     className={`
-                      bg-linear-to-br from-blue-600 to-blue-800 rounded-lg
-                      flex items-center justify-center text-white text-xs font-bold text-center leading-tight
+                      bg-linear-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center text-white text-xs font-bold text-center leading-tight
                       transition-all duration-700 ease-in-out
                       ${isExpanded ? "w-full h-32" : "w-18 h-18"}
                     `}
