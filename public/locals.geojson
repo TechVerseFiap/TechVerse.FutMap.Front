@@ -1,0 +1,629 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "type": "school",
+                "placeName": "Academia Central",
+                "ratingValue": 4.5,
+                "placeDesc": "Academia completa com treinos personalizados.",
+                "placeImgUrl": "https://images.unsplash.com/photo-1710926851153-c5c4cd1e4596?q=80&w=1622&auto=format&fit=crop",
+                "quantityRating": 120,
+                "opensAt": "2025-09-16T06:00:00",
+                "closesAt": "2025-09-16T22:00:00",
+                "phone": "(11) 99999-9999",
+                "minAge": 16,
+                "maxAge": 60,
+                "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.6469569705262,
+                    -23.619204398152434 
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Studio Corpo Livre",
+              "ratingValue": 4.8,
+              "placeDesc": "Espaço moderno voltado para treinos funcionais e yoga.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1487466365202-1afdb86c764e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1173",
+              "quantityRating": 98,
+              "opensAt": "2025-09-16T07:00:00",
+              "closesAt": "2025-09-16T21:00:00",
+              "phone": "(11) 98888-1234",
+              "minAge": 14,
+              "maxAge": 65,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.6445537114086,
+                    -23.60504833994689 
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Fit Club Paulista",
+              "ratingValue": 4.3,
+              "placeDesc": "Ambiente climatizado com equipamentos de última geração.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1531861218190-f90c89febf69?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 212,
+              "opensAt": "2025-09-16T05:30:00",
+              "closesAt": "2025-09-16T23:00:00",
+              "phone": "(11) 97777-2222",
+              "minAge": 18,
+              "maxAge": 55,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.65389722783166,
+                    -23.600434508876745 
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Athletico Pro",
+              "ratingValue": 4.9,
+              "placeDesc": "Treinamento de alta performance para atletas e iniciantes.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1532890198585-20730fc10d27?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1353",
+              "quantityRating": 305,
+              "opensAt": "2025-09-16T06:00:00",
+              "closesAt": "2025-09-16T22:00:00",
+              "phone": "(11) 95555-3344",
+              "minAge": 15,
+              "maxAge": 50,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.65172541034268,
+                    -23.584440121915872
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "event",
+              "placeName": "Campeonato de Verão",
+              "ratingValue": 4.8,
+              "placeDesc": "Torneio de futebol de mesa com times amadores da região.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1552127966-d24b805b9be7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 210,
+              "opensAt": "2025-12-10T08:00:00",
+              "closesAt": "2025-12-10T20:00:00",
+              "phone": "(11) 98888-1212",
+              "minAge": 12,
+              "maxAge": 50,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.60977719594592,
+                    -23.573844524325516
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "event",
+              "placeName": "Torneio Relâmpago Sub-20",
+              "ratingValue": 4.6,
+              "placeDesc": "Competição rápida para jovens talentos do futebol de mesa.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1529272599668-1f42ea08124a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 98,
+              "opensAt": "2025-11-22T09:00:00",
+              "closesAt": "2025-11-22T17:00:00",
+              "phone": "(11) 97777-5454",
+              "minAge": 15,
+              "maxAge": 20,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.60720227546277,
+                    -23.57069777779933
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Body Health Center",
+              "ratingValue": 4.7,
+              "placeDesc": "Academia premium com personal trainers e spa de recuperação.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1652190416554-c46af8a0ff50?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+              "quantityRating": 310,
+              "opensAt": "2025-09-16T06:00:00",
+              "closesAt": "2025-09-16T22:30:00",
+              "phone": "(11) 91111-1234",
+              "minAge": 20,
+              "maxAge": 65,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.613382084622316,
+                    -23.562830581621423
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Copa FutMap Regional",
+              "ratingValue": 4.9,
+              "placeDesc": "Torneio oficial com times das principais ligas amadoras da região metropolitana.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1525088068454-ff2c453e50e9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 670,
+              "opensAt": "2025-07-10T08:00:00",
+              "closesAt": "2025-07-12T22:00:00",
+              "phone": "(11) 90000-1234",
+              "minAge": 16,
+              "maxAge": 45,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.58883450934965,
+                    -23.568022983967754
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Taça Universitária 2025",
+              "ratingValue": 4.6,
+              "placeDesc": "Campeonato entre faculdades com equipes masculinas e femininas.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1554041046-18ebf8832be5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 245,
+              "opensAt": "2025-09-02T09:00:00",
+              "closesAt": "2025-09-05T21:00:00",
+              "phone": "(11) 91111-4321",
+              "minAge": 18,
+              "maxAge": 30,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.56136868965331,
+                    -23.58485754329186
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "CrossPower Box",
+              "ratingValue": 4.6,
+              "placeDesc": "Box especializado em crossfit e treino funcional.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1516283250450-174387a1af6b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+              "quantityRating": 190,
+              "opensAt": "2025-09-16T06:00:00",
+              "closesAt": "2025-09-16T22:00:00",
+              "phone": "(11) 98888-4455",
+              "minAge": 16,
+              "maxAge": 55,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.56554403011741,
+                    -23.562838759275387
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Vita Sports Club",
+              "ratingValue": 4.4,
+              "placeDesc": "Academia com quadras de tênis e piscina semiolímpica.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1584801198917-796b389617f8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
+              "quantityRating": 260,
+              "opensAt": "2025-09-16T05:30:00",
+              "closesAt": "2025-09-16T22:30:00",
+              "phone": "(11) 93333-5555",
+              "minAge": 10,
+              "maxAge": 70,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.597594156544844,
+                    -23.548242580456197
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Pulse Academia",
+              "ratingValue": 4.3,
+              "placeDesc": "Espaço vibrante com foco em treinos em grupo e dança.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1532396115384-4be6f5256898?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 150,
+              "opensAt": "2025-09-16T07:00:00",
+              "closesAt": "2025-09-16T21:00:00",
+              "phone": "(11) 97777-6677",
+              "minAge": 12,
+              "maxAge": 65,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.61351715020903,
+                    -23.560780422076366
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Open Master FutMap",
+              "ratingValue": 4.7,
+              "placeDesc": "Competição exclusiva para veteranos com mais de 40 anos.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1567989587736-688f8995fabb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 189,
+              "opensAt": "2025-10-20T10:00:00",
+              "closesAt": "2025-10-20T18:00:00",
+              "phone": "(11) 92222-6543",
+              "minAge": 40,
+              "maxAge": 70,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.64454657129019,
+                    -23.5519853451993
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Desafio Nacional 2025",
+              "ratingValue": 5.0,
+              "placeDesc": "Etapa nacional do maior torneio de futebol de mesa do Brasil.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1607450499663-4112f506d2f8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1174",
+              "quantityRating": 1120,
+              "opensAt": "2025-12-05T08:00:00",
+              "closesAt": "2025-12-08T22:00:00",
+              "phone": "(11) 93333-7777",
+              "minAge": 18,
+              "maxAge": 50,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.67271801787413,
+                    -23.55348242115488
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Copa do Interior",
+              "ratingValue": 4.3,
+              "placeDesc": "Torneio amistoso com times de cidades do interior paulista.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1604652716188-e226685e94ca?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169",
+              "quantityRating": 134,
+              "opensAt": "2025-08-03T09:00:00",
+              "closesAt": "2025-08-03T18:00:00",
+              "phone": "(11) 94444-9090",
+              "minAge": 14,
+              "maxAge": 60,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.68251678190333,
+                    -23.53851089440569
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "event",
+              "placeName": "Festival do Esporte Local",
+              "ratingValue": 4.9,
+              "placeDesc": "Evento gratuito com demonstrações e oficinas de diferentes modalidades.",
+              "placeImgUrl": "https://netlusa.com.br/wp-content/uploads/2022/08/lusa-caninde-paulistao-feminino.jpg",
+              "quantityRating": 560,
+              "opensAt": "2025-09-30T10:00:00",
+              "closesAt": "2025-09-30T22:00:00",
+              "phone": "(11) 95555-7878",
+              "minAge": 10,
+              "maxAge": 60,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.666185508521345,
+                    -23.53233464304945
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Liga das Escolas",
+              "ratingValue": 4.8,
+              "placeDesc": "Campeonato estudantil que reúne as melhores academias e escolas esportivas.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1566993305756-99d80ae31ca4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 330,
+              "opensAt": "2025-09-15T07:00:00",
+              "closesAt": "2025-09-17T19:00:00",
+              "phone": "(11) 95555-6060",
+              "minAge": 10,
+              "maxAge": 18,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.65618260311353,
+                    -23.522788956474667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Urban Fit Lab",
+              "ratingValue": 4.4,
+              "placeDesc": "Ambiente urbano para treinos de alta intensidade.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1724086538386-6faf55b76a31?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 201,
+              "opensAt": "2025-09-16T07:00:00",
+              "closesAt": "2025-09-16T21:00:00",
+              "phone": "(11) 91111-8899",
+              "minAge": 16,
+              "maxAge": 60,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.674147003833724,
+                    -23.519419725518166
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Copa Feminina FutMap",
+              "ratingValue": 4.9,
+              "placeDesc": "Torneio feminino com equipes de diferentes estados e categorias.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1569242195566-46eca9d64f3b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 512,
+              "opensAt": "2025-11-01T08:30:00",
+              "closesAt": "2025-11-03T20:00:00",
+              "phone": "(11) 96666-8585",
+              "minAge": 16,
+              "maxAge": 40,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.66986004457095,
+                    -23.507626738177432
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Strong Base Gym",
+              "ratingValue": 4.3,
+              "placeDesc": "Equipamentos de ponta e ambiente climatizado.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1531085587519-0210270e7cda?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=765",
+              "quantityRating": 189,
+              "opensAt": "2025-09-16T06:00:00",
+              "closesAt": "2025-09-16T21:30:00",
+              "phone": "(11) 96666-8899",
+              "minAge": 15,
+              "maxAge": 60,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.677617399427405,
+                    -23.515863221516224
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "tournament",
+              "placeName": "Torneio Relâmpago Noturno",
+              "ratingValue": 4.2,
+              "placeDesc": "Disputa noturna com rodadas rápidas e música ao vivo.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1528115931309-a6241625e058?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 85,
+              "opensAt": "2025-06-22T18:00:00",
+              "closesAt": "2025-06-23T00:00:00",
+              "phone": "(11) 97777-3232",
+              "minAge": 18,
+              "maxAge": 45,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.67639255392375,
+                    -23.520729992248146
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "event",
+              "placeName": "Desafio dos Campeões",
+              "ratingValue": 4.7,
+              "placeDesc": "Competição anual que reúne os melhores jogadores das últimas temporadas.",
+              "placeImgUrl": "https://s2-ge.glbimg.com/leMMlcDPAgWMCpLCXPKqUsx4dBY=/0x0:4509x3001/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2025/G/F/NAlaGfQf6FAGzBqqleeg/rib0731.jpg",
+              "quantityRating": 302,
+              "opensAt": "2025-10-15T14:00:00",
+              "closesAt": "2025-10-15T21:00:00",
+              "phone": "(11) 93333-1111",
+              "minAge": 18,
+              "maxAge": 40,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.67088075048705,
+                    -23.50781393620948
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "MoveOn Fit",
+              "ratingValue": 4.5,
+              "placeDesc": "Espaço versátil com treinos de funcional, luta e musculação.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1592340393582-b0117838cd9f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
+              "quantityRating": 221,
+              "opensAt": "2025-09-16T06:00:00",
+              "closesAt": "2025-09-16T22:00:00",
+              "phone": "(11) 95555-9900",
+              "minAge": 15,
+              "maxAge": 60,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.60371838552847,
+                    -23.4905905586343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Focus Training",
+              "ratingValue": 4.8,
+              "placeDesc": "Treinos de força e resistência com acompanhamento nutricional.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1505843687871-669c89088b12?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "quantityRating": 312,
+              "opensAt": "2025-09-16T05:30:00",
+              "closesAt": "2025-09-16T22:00:00",
+              "phone": "(11) 91111-6622",
+              "minAge": 18,
+              "maxAge": 55,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.5863664075601,
+                    -23.514552905874805
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "event",
+              "placeName": "Encontro dos Veteranos",
+              "ratingValue": 4.4,
+              "placeDesc": "Evento descontraído para jogadores experientes se reunirem e competirem amistosamente.",
+              "placeImgUrl": "https://www.mktesportivo.com/wp-content/uploads/2023/04/brasil_geracaoz_Easy-Resize.com_.jpg",
+              "quantityRating": 150,
+              "opensAt": "2025-08-12T13:00:00",
+              "closesAt": "2025-08-12T18:00:00",
+              "phone": "(11) 96666-2222",
+              "minAge": 35,
+              "maxAge": 70,
+              "isVerified": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.54686808576406,
+                    -23.47912378932507
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+              "type": "school",
+              "placeName": "Flex Studio",
+              "ratingValue": 4.7,
+              "placeDesc": "Aulas de pilates e alongamento personalizadas.",
+              "placeImgUrl": "https://images.unsplash.com/photo-1710993115040-7b3d533e5b5c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974",
+              "quantityRating": 170,
+              "opensAt": "2025-09-16T08:00:00",
+              "closesAt": "2025-09-16T20:00:00",
+              "phone": "(11) 98888-1133",
+              "minAge": 12,
+              "maxAge": 70,
+              "isVerified": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -46.5676904593261,
+                    -23.561483259519644
+                ]
+            }
+        }
+    ]
+}
